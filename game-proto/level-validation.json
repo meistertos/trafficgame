@@ -1,0 +1,2968 @@
+{
+  "generatedAt": "2026-11-16T19:20:22.614Z",
+  "pack": "traffic-levels.json",
+  "packHash": "3fb79685b10ffcb87750b62e29a962850f98864d29ea5e539d1c89156c987759",
+  "engine": "game-proto/src/sim.js @ 120 ticks/s",
+  "engineHash": "b7c420658d7aaed0a44a6e46c3510b672e503de392d552f5a3409b3cfaecbb86",
+  "parityNote": "matches committed report",
+  "levels": {
+    "L1": {
+      "reference": {
+        "outcome": "win",
+        "clearTick": 1221,
+        "clearTime": 10.175,
+        "requiredCleared": 3,
+        "target": 3
+      },
+      "windows": {
+        "A": [
+          [
+            4.5,
+            16
+          ]
+        ]
+      },
+      "allRed": {
+        "outcome": "timeout",
+        "tick": 1920,
+        "requiredCleared": 0
+      },
+      "allGreen": {
+        "outcome": "win",
+        "tick": 1139,
+        "time": 9.491666666666667
+      },
+      "perturbations": {
+        "total": 8,
+        "stillWin": 8,
+        "variants": [
+          {
+            "signal": "A",
+            "window": [
+              4.5,
+              16
+            ],
+            "boundary": "start",
+            "delta": -0.2,
+            "outcome": "win",
+            "time": 9.975
+          },
+          {
+            "signal": "A",
+            "window": [
+              4.5,
+              16
+            ],
+            "boundary": "start",
+            "delta": -0.1,
+            "outcome": "win",
+            "time": 10.075
+          },
+          {
+            "signal": "A",
+            "window": [
+              4.5,
+              16
+            ],
+            "boundary": "start",
+            "delta": 0.1,
+            "outcome": "win",
+            "time": 10.275
+          },
+          {
+            "signal": "A",
+            "window": [
+              4.5,
+              16
+            ],
+            "boundary": "start",
+            "delta": 0.2,
+            "outcome": "win",
+            "time": 10.375
+          },
+          {
+            "signal": "A",
+            "window": [
+              4.5,
+              16
+            ],
+            "boundary": "end",
+            "delta": -0.2,
+            "outcome": "win",
+            "time": 10.175
+          },
+          {
+            "signal": "A",
+            "window": [
+              4.5,
+              16
+            ],
+            "boundary": "end",
+            "delta": -0.1,
+            "outcome": "win",
+            "time": 10.175
+          },
+          {
+            "signal": "A",
+            "window": [
+              4.5,
+              16
+            ],
+            "boundary": "end",
+            "delta": 0.1,
+            "outcome": "win",
+            "time": 10.175
+          },
+          {
+            "signal": "A",
+            "window": [
+              4.5,
+              16
+            ],
+            "boundary": "end",
+            "delta": 0.2,
+            "outcome": "win",
+            "time": 10.175
+          }
+        ]
+      }
+    },
+    "L2": {
+      "reference": {
+        "outcome": "win",
+        "clearTick": 2495,
+        "clearTime": 20.791666666666668,
+        "requiredCleared": 5,
+        "target": 5
+      },
+      "windows": {
+        "A": [
+          [
+            6.2,
+            15.06
+          ]
+        ]
+      },
+      "allRed": {
+        "outcome": "overflow",
+        "tick": 3168,
+        "requiredCleared": 0
+      },
+      "allGreen": {
+        "outcome": "collision",
+        "tick": 678,
+        "time": 5.65,
+        "vehicles": [
+          "v1",
+          "v4"
+        ],
+        "lanes": [
+          "H",
+          "V"
+        ]
+      },
+      "perturbations": {
+        "total": 8,
+        "stillWin": 8,
+        "variants": [
+          {
+            "signal": "A",
+            "window": [
+              6.2,
+              15.06
+            ],
+            "boundary": "start",
+            "delta": -0.2,
+            "outcome": "win",
+            "time": 20.791666666666668
+          },
+          {
+            "signal": "A",
+            "window": [
+              6.2,
+              15.06
+            ],
+            "boundary": "start",
+            "delta": -0.1,
+            "outcome": "win",
+            "time": 20.791666666666668
+          },
+          {
+            "signal": "A",
+            "window": [
+              6.2,
+              15.06
+            ],
+            "boundary": "start",
+            "delta": 0.1,
+            "outcome": "win",
+            "time": 20.791666666666668
+          },
+          {
+            "signal": "A",
+            "window": [
+              6.2,
+              15.06
+            ],
+            "boundary": "start",
+            "delta": 0.2,
+            "outcome": "win",
+            "time": 20.791666666666668
+          },
+          {
+            "signal": "A",
+            "window": [
+              6.2,
+              15.06
+            ],
+            "boundary": "end",
+            "delta": -0.2,
+            "outcome": "win",
+            "time": 20.791666666666668
+          },
+          {
+            "signal": "A",
+            "window": [
+              6.2,
+              15.06
+            ],
+            "boundary": "end",
+            "delta": -0.1,
+            "outcome": "win",
+            "time": 20.791666666666668
+          },
+          {
+            "signal": "A",
+            "window": [
+              6.2,
+              15.06
+            ],
+            "boundary": "end",
+            "delta": 0.1,
+            "outcome": "win",
+            "time": 20.791666666666668
+          },
+          {
+            "signal": "A",
+            "window": [
+              6.2,
+              15.06
+            ],
+            "boundary": "end",
+            "delta": 0.2,
+            "outcome": "win",
+            "time": 20.791666666666668
+          }
+        ]
+      }
+    },
+    "L3": {
+      "reference": {
+        "outcome": "win",
+        "clearTick": 2961,
+        "clearTime": 24.675,
+        "requiredCleared": 8,
+        "target": 8
+      },
+      "windows": {
+        "A": [
+          [
+            1,
+            13.88
+          ],
+          [
+            15.2,
+            16.16
+          ],
+          [
+            18.2,
+            21.6
+          ]
+        ],
+        "B": [
+          [
+            1,
+            31
+          ]
+        ]
+      },
+      "allRed": {
+        "outcome": "overflow",
+        "tick": 2532,
+        "requiredCleared": 0
+      },
+      "allGreen": {
+        "outcome": "collision",
+        "tick": 2454,
+        "time": 20.45,
+        "vehicles": [
+          "v12",
+          "v15"
+        ],
+        "lanes": [
+          "V",
+          "HIGH"
+        ]
+      },
+      "perturbations": {
+        "total": 32,
+        "stillWin": 32,
+        "variants": [
+          {
+            "signal": "A",
+            "window": [
+              1,
+              13.88
+            ],
+            "boundary": "start",
+            "delta": -0.2,
+            "outcome": "win",
+            "time": 24.675
+          },
+          {
+            "signal": "A",
+            "window": [
+              1,
+              13.88
+            ],
+            "boundary": "start",
+            "delta": -0.1,
+            "outcome": "win",
+            "time": 24.675
+          },
+          {
+            "signal": "A",
+            "window": [
+              1,
+              13.88
+            ],
+            "boundary": "start",
+            "delta": 0.1,
+            "outcome": "win",
+            "time": 24.675
+          },
+          {
+            "signal": "A",
+            "window": [
+              1,
+              13.88
+            ],
+            "boundary": "start",
+            "delta": 0.2,
+            "outcome": "win",
+            "time": 24.675
+          },
+          {
+            "signal": "A",
+            "window": [
+              1,
+              13.88
+            ],
+            "boundary": "end",
+            "delta": -0.2,
+            "outcome": "win",
+            "time": 24.675
+          },
+          {
+            "signal": "A",
+            "window": [
+              1,
+              13.88
+            ],
+            "boundary": "end",
+            "delta": -0.1,
+            "outcome": "win",
+            "time": 24.675
+          },
+          {
+            "signal": "A",
+            "window": [
+              1,
+              13.88
+            ],
+            "boundary": "end",
+            "delta": 0.1,
+            "outcome": "win",
+            "time": 24.675
+          },
+          {
+            "signal": "A",
+            "window": [
+              1,
+              13.88
+            ],
+            "boundary": "end",
+            "delta": 0.2,
+            "outcome": "win",
+            "time": 24.675
+          },
+          {
+            "signal": "A",
+            "window": [
+              15.2,
+              16.16
+            ],
+            "boundary": "start",
+            "delta": -0.2,
+            "outcome": "win",
+            "time": 24.675
+          },
+          {
+            "signal": "A",
+            "window": [
+              15.2,
+              16.16
+            ],
+            "boundary": "start",
+            "delta": -0.1,
+            "outcome": "win",
+            "time": 24.675
+          },
+          {
+            "signal": "A",
+            "window": [
+              15.2,
+              16.16
+            ],
+            "boundary": "start",
+            "delta": 0.1,
+            "outcome": "win",
+            "time": 24.675
+          },
+          {
+            "signal": "A",
+            "window": [
+              15.2,
+              16.16
+            ],
+            "boundary": "start",
+            "delta": 0.2,
+            "outcome": "win",
+            "time": 24.675
+          },
+          {
+            "signal": "A",
+            "window": [
+              15.2,
+              16.16
+            ],
+            "boundary": "end",
+            "delta": -0.2,
+            "outcome": "win",
+            "time": 24.675
+          },
+          {
+            "signal": "A",
+            "window": [
+              15.2,
+              16.16
+            ],
+            "boundary": "end",
+            "delta": -0.1,
+            "outcome": "win",
+            "time": 24.675
+          },
+          {
+            "signal": "A",
+            "window": [
+              15.2,
+              16.16
+            ],
+            "boundary": "end",
+            "delta": 0.1,
+            "outcome": "win",
+            "time": 24.675
+          },
+          {
+            "signal": "A",
+            "window": [
+              15.2,
+              16.16
+            ],
+            "boundary": "end",
+            "delta": 0.2,
+            "outcome": "win",
+            "time": 24.675
+          },
+          {
+            "signal": "A",
+            "window": [
+              18.2,
+              21.6
+            ],
+            "boundary": "start",
+            "delta": -0.2,
+            "outcome": "win",
+            "time": 24.475
+          },
+          {
+            "signal": "A",
+            "window": [
+              18.2,
+              21.6
+            ],
+            "boundary": "start",
+            "delta": -0.1,
+            "outcome": "win",
+            "time": 24.575
+          },
+          {
+            "signal": "A",
+            "window": [
+              18.2,
+              21.6
+            ],
+            "boundary": "start",
+            "delta": 0.1,
+            "outcome": "win",
+            "time": 24.775
+          },
+          {
+            "signal": "A",
+            "window": [
+              18.2,
+              21.6
+            ],
+            "boundary": "start",
+            "delta": 0.2,
+            "outcome": "win",
+            "time": 24.875
+          },
+          {
+            "signal": "A",
+            "window": [
+              18.2,
+              21.6
+            ],
+            "boundary": "end",
+            "delta": -0.2,
+            "outcome": "win",
+            "time": 24.675
+          },
+          {
+            "signal": "A",
+            "window": [
+              18.2,
+              21.6
+            ],
+            "boundary": "end",
+            "delta": -0.1,
+            "outcome": "win",
+            "time": 24.675
+          },
+          {
+            "signal": "A",
+            "window": [
+              18.2,
+              21.6
+            ],
+            "boundary": "end",
+            "delta": 0.1,
+            "outcome": "win",
+            "time": 24.675
+          },
+          {
+            "signal": "A",
+            "window": [
+              18.2,
+              21.6
+            ],
+            "boundary": "end",
+            "delta": 0.2,
+            "outcome": "win",
+            "time": 24.675
+          },
+          {
+            "signal": "B",
+            "window": [
+              1,
+              31
+            ],
+            "boundary": "start",
+            "delta": -0.2,
+            "outcome": "win",
+            "time": 24.675
+          },
+          {
+            "signal": "B",
+            "window": [
+              1,
+              31
+            ],
+            "boundary": "start",
+            "delta": -0.1,
+            "outcome": "win",
+            "time": 24.675
+          },
+          {
+            "signal": "B",
+            "window": [
+              1,
+              31
+            ],
+            "boundary": "start",
+            "delta": 0.1,
+            "outcome": "win",
+            "time": 24.675
+          },
+          {
+            "signal": "B",
+            "window": [
+              1,
+              31
+            ],
+            "boundary": "start",
+            "delta": 0.2,
+            "outcome": "win",
+            "time": 24.675
+          },
+          {
+            "signal": "B",
+            "window": [
+              1,
+              31
+            ],
+            "boundary": "end",
+            "delta": -0.2,
+            "outcome": "win",
+            "time": 24.675
+          },
+          {
+            "signal": "B",
+            "window": [
+              1,
+              31
+            ],
+            "boundary": "end",
+            "delta": -0.1,
+            "outcome": "win",
+            "time": 24.675
+          },
+          {
+            "signal": "B",
+            "window": [
+              1,
+              31
+            ],
+            "boundary": "end",
+            "delta": 0.1,
+            "outcome": "win",
+            "time": 24.675
+          },
+          {
+            "signal": "B",
+            "window": [
+              1,
+              31
+            ],
+            "boundary": "end",
+            "delta": 0.2,
+            "outcome": "win",
+            "time": 24.675
+          }
+        ]
+      }
+    },
+    "L4": {
+      "reference": {
+        "outcome": "win",
+        "clearTick": 2025,
+        "clearTime": 16.875,
+        "requiredCleared": 12,
+        "target": 12
+      },
+      "windows": {
+        "A": [
+          [
+            1,
+            9
+          ]
+        ],
+        "B": [
+          [
+            10,
+            24.9
+          ]
+        ]
+      },
+      "allRed": {
+        "outcome": "overflow",
+        "tick": 1656,
+        "requiredCleared": 0
+      },
+      "allGreen": {
+        "outcome": "collision",
+        "tick": 678,
+        "time": 5.65,
+        "vehicles": [
+          "v1",
+          "v8"
+        ],
+        "lanes": [
+          "H",
+          "V"
+        ]
+      },
+      "perturbations": {
+        "total": 16,
+        "stillWin": 16,
+        "variants": [
+          {
+            "signal": "A",
+            "window": [
+              1,
+              9
+            ],
+            "boundary": "start",
+            "delta": -0.2,
+            "outcome": "win",
+            "time": 16.875
+          },
+          {
+            "signal": "A",
+            "window": [
+              1,
+              9
+            ],
+            "boundary": "start",
+            "delta": -0.1,
+            "outcome": "win",
+            "time": 16.875
+          },
+          {
+            "signal": "A",
+            "window": [
+              1,
+              9
+            ],
+            "boundary": "start",
+            "delta": 0.1,
+            "outcome": "win",
+            "time": 16.875
+          },
+          {
+            "signal": "A",
+            "window": [
+              1,
+              9
+            ],
+            "boundary": "start",
+            "delta": 0.2,
+            "outcome": "win",
+            "time": 16.875
+          },
+          {
+            "signal": "A",
+            "window": [
+              1,
+              9
+            ],
+            "boundary": "end",
+            "delta": -0.2,
+            "outcome": "win",
+            "time": 16.875
+          },
+          {
+            "signal": "A",
+            "window": [
+              1,
+              9
+            ],
+            "boundary": "end",
+            "delta": -0.1,
+            "outcome": "win",
+            "time": 16.875
+          },
+          {
+            "signal": "A",
+            "window": [
+              1,
+              9
+            ],
+            "boundary": "end",
+            "delta": 0.1,
+            "outcome": "win",
+            "time": 16.475
+          },
+          {
+            "signal": "A",
+            "window": [
+              1,
+              9
+            ],
+            "boundary": "end",
+            "delta": 0.2,
+            "outcome": "win",
+            "time": 16.475
+          },
+          {
+            "signal": "B",
+            "window": [
+              10,
+              24.9
+            ],
+            "boundary": "start",
+            "delta": -0.2,
+            "outcome": "win",
+            "time": 16.675
+          },
+          {
+            "signal": "B",
+            "window": [
+              10,
+              24.9
+            ],
+            "boundary": "start",
+            "delta": -0.1,
+            "outcome": "win",
+            "time": 16.775
+          },
+          {
+            "signal": "B",
+            "window": [
+              10,
+              24.9
+            ],
+            "boundary": "start",
+            "delta": 0.1,
+            "outcome": "win",
+            "time": 16.975
+          },
+          {
+            "signal": "B",
+            "window": [
+              10,
+              24.9
+            ],
+            "boundary": "start",
+            "delta": 0.2,
+            "outcome": "win",
+            "time": 17.075
+          },
+          {
+            "signal": "B",
+            "window": [
+              10,
+              24.9
+            ],
+            "boundary": "end",
+            "delta": -0.2,
+            "outcome": "win",
+            "time": 16.875
+          },
+          {
+            "signal": "B",
+            "window": [
+              10,
+              24.9
+            ],
+            "boundary": "end",
+            "delta": -0.1,
+            "outcome": "win",
+            "time": 16.875
+          },
+          {
+            "signal": "B",
+            "window": [
+              10,
+              24.9
+            ],
+            "boundary": "end",
+            "delta": 0.1,
+            "outcome": "win",
+            "time": 16.875
+          },
+          {
+            "signal": "B",
+            "window": [
+              10,
+              24.9
+            ],
+            "boundary": "end",
+            "delta": 0.2,
+            "outcome": "win",
+            "time": 16.875
+          }
+        ]
+      }
+    },
+    "L5": {
+      "reference": {
+        "outcome": "win",
+        "clearTick": 2111,
+        "clearTime": 17.591666666666665,
+        "requiredCleared": 12,
+        "target": 12
+      },
+      "windows": {
+        "A": [
+          [
+            1,
+            2.26
+          ],
+          [
+            5.4,
+            33
+          ]
+        ],
+        "B": [
+          [
+            1,
+            33
+          ]
+        ],
+        "C": [
+          [
+            1,
+            11.29
+          ],
+          [
+            12.65,
+            13.44
+          ]
+        ],
+        "D": [
+          [
+            1,
+            33
+          ]
+        ]
+      },
+      "allRed": {
+        "outcome": "overflow",
+        "tick": 2400,
+        "requiredCleared": 0
+      },
+      "allGreen": {
+        "outcome": "collision",
+        "tick": 450,
+        "time": 3.75,
+        "vehicles": [
+          "v8",
+          "v4"
+        ],
+        "lanes": [
+          "LEFT",
+          "LOW"
+        ]
+      },
+      "perturbations": {
+        "total": 48,
+        "stillWin": 48,
+        "variants": [
+          {
+            "signal": "A",
+            "window": [
+              1,
+              2.26
+            ],
+            "boundary": "start",
+            "delta": -0.2,
+            "outcome": "win",
+            "time": 17.591666666666665
+          },
+          {
+            "signal": "A",
+            "window": [
+              1,
+              2.26
+            ],
+            "boundary": "start",
+            "delta": -0.1,
+            "outcome": "win",
+            "time": 17.591666666666665
+          },
+          {
+            "signal": "A",
+            "window": [
+              1,
+              2.26
+            ],
+            "boundary": "start",
+            "delta": 0.1,
+            "outcome": "win",
+            "time": 17.591666666666665
+          },
+          {
+            "signal": "A",
+            "window": [
+              1,
+              2.26
+            ],
+            "boundary": "start",
+            "delta": 0.2,
+            "outcome": "win",
+            "time": 17.591666666666665
+          },
+          {
+            "signal": "A",
+            "window": [
+              1,
+              2.26
+            ],
+            "boundary": "end",
+            "delta": -0.2,
+            "outcome": "win",
+            "time": 17.591666666666665
+          },
+          {
+            "signal": "A",
+            "window": [
+              1,
+              2.26
+            ],
+            "boundary": "end",
+            "delta": -0.1,
+            "outcome": "win",
+            "time": 17.591666666666665
+          },
+          {
+            "signal": "A",
+            "window": [
+              1,
+              2.26
+            ],
+            "boundary": "end",
+            "delta": 0.1,
+            "outcome": "win",
+            "time": 17.591666666666665
+          },
+          {
+            "signal": "A",
+            "window": [
+              1,
+              2.26
+            ],
+            "boundary": "end",
+            "delta": 0.2,
+            "outcome": "win",
+            "time": 17.591666666666665
+          },
+          {
+            "signal": "A",
+            "window": [
+              5.4,
+              33
+            ],
+            "boundary": "start",
+            "delta": -0.2,
+            "outcome": "win",
+            "time": 17.591666666666665
+          },
+          {
+            "signal": "A",
+            "window": [
+              5.4,
+              33
+            ],
+            "boundary": "start",
+            "delta": -0.1,
+            "outcome": "win",
+            "time": 17.591666666666665
+          },
+          {
+            "signal": "A",
+            "window": [
+              5.4,
+              33
+            ],
+            "boundary": "start",
+            "delta": 0.1,
+            "outcome": "win",
+            "time": 17.591666666666665
+          },
+          {
+            "signal": "A",
+            "window": [
+              5.4,
+              33
+            ],
+            "boundary": "start",
+            "delta": 0.2,
+            "outcome": "win",
+            "time": 17.591666666666665
+          },
+          {
+            "signal": "A",
+            "window": [
+              5.4,
+              33
+            ],
+            "boundary": "end",
+            "delta": -0.2,
+            "outcome": "win",
+            "time": 17.591666666666665
+          },
+          {
+            "signal": "A",
+            "window": [
+              5.4,
+              33
+            ],
+            "boundary": "end",
+            "delta": -0.1,
+            "outcome": "win",
+            "time": 17.591666666666665
+          },
+          {
+            "signal": "A",
+            "window": [
+              5.4,
+              33
+            ],
+            "boundary": "end",
+            "delta": 0.1,
+            "outcome": "win",
+            "time": 17.591666666666665
+          },
+          {
+            "signal": "A",
+            "window": [
+              5.4,
+              33
+            ],
+            "boundary": "end",
+            "delta": 0.2,
+            "outcome": "win",
+            "time": 17.591666666666665
+          },
+          {
+            "signal": "B",
+            "window": [
+              1,
+              33
+            ],
+            "boundary": "start",
+            "delta": -0.2,
+            "outcome": "win",
+            "time": 17.591666666666665
+          },
+          {
+            "signal": "B",
+            "window": [
+              1,
+              33
+            ],
+            "boundary": "start",
+            "delta": -0.1,
+            "outcome": "win",
+            "time": 17.591666666666665
+          },
+          {
+            "signal": "B",
+            "window": [
+              1,
+              33
+            ],
+            "boundary": "start",
+            "delta": 0.1,
+            "outcome": "win",
+            "time": 17.591666666666665
+          },
+          {
+            "signal": "B",
+            "window": [
+              1,
+              33
+            ],
+            "boundary": "start",
+            "delta": 0.2,
+            "outcome": "win",
+            "time": 17.591666666666665
+          },
+          {
+            "signal": "B",
+            "window": [
+              1,
+              33
+            ],
+            "boundary": "end",
+            "delta": -0.2,
+            "outcome": "win",
+            "time": 17.591666666666665
+          },
+          {
+            "signal": "B",
+            "window": [
+              1,
+              33
+            ],
+            "boundary": "end",
+            "delta": -0.1,
+            "outcome": "win",
+            "time": 17.591666666666665
+          },
+          {
+            "signal": "B",
+            "window": [
+              1,
+              33
+            ],
+            "boundary": "end",
+            "delta": 0.1,
+            "outcome": "win",
+            "time": 17.591666666666665
+          },
+          {
+            "signal": "B",
+            "window": [
+              1,
+              33
+            ],
+            "boundary": "end",
+            "delta": 0.2,
+            "outcome": "win",
+            "time": 17.591666666666665
+          },
+          {
+            "signal": "C",
+            "window": [
+              1,
+              11.29
+            ],
+            "boundary": "start",
+            "delta": -0.2,
+            "outcome": "win",
+            "time": 17.591666666666665
+          },
+          {
+            "signal": "C",
+            "window": [
+              1,
+              11.29
+            ],
+            "boundary": "start",
+            "delta": -0.1,
+            "outcome": "win",
+            "time": 17.591666666666665
+          },
+          {
+            "signal": "C",
+            "window": [
+              1,
+              11.29
+            ],
+            "boundary": "start",
+            "delta": 0.1,
+            "outcome": "win",
+            "time": 17.591666666666665
+          },
+          {
+            "signal": "C",
+            "window": [
+              1,
+              11.29
+            ],
+            "boundary": "start",
+            "delta": 0.2,
+            "outcome": "win",
+            "time": 17.591666666666665
+          },
+          {
+            "signal": "C",
+            "window": [
+              1,
+              11.29
+            ],
+            "boundary": "end",
+            "delta": -0.2,
+            "outcome": "win",
+            "time": 17.591666666666665
+          },
+          {
+            "signal": "C",
+            "window": [
+              1,
+              11.29
+            ],
+            "boundary": "end",
+            "delta": -0.1,
+            "outcome": "win",
+            "time": 17.591666666666665
+          },
+          {
+            "signal": "C",
+            "window": [
+              1,
+              11.29
+            ],
+            "boundary": "end",
+            "delta": 0.1,
+            "outcome": "win",
+            "time": 17.591666666666665
+          },
+          {
+            "signal": "C",
+            "window": [
+              1,
+              11.29
+            ],
+            "boundary": "end",
+            "delta": 0.2,
+            "outcome": "win",
+            "time": 17.591666666666665
+          },
+          {
+            "signal": "C",
+            "window": [
+              12.65,
+              13.44
+            ],
+            "boundary": "start",
+            "delta": -0.2,
+            "outcome": "win",
+            "time": 17.591666666666665
+          },
+          {
+            "signal": "C",
+            "window": [
+              12.65,
+              13.44
+            ],
+            "boundary": "start",
+            "delta": -0.1,
+            "outcome": "win",
+            "time": 17.591666666666665
+          },
+          {
+            "signal": "C",
+            "window": [
+              12.65,
+              13.44
+            ],
+            "boundary": "start",
+            "delta": 0.1,
+            "outcome": "win",
+            "time": 17.591666666666665
+          },
+          {
+            "signal": "C",
+            "window": [
+              12.65,
+              13.44
+            ],
+            "boundary": "start",
+            "delta": 0.2,
+            "outcome": "win",
+            "time": 17.591666666666665
+          },
+          {
+            "signal": "C",
+            "window": [
+              12.65,
+              13.44
+            ],
+            "boundary": "end",
+            "delta": -0.2,
+            "outcome": "win",
+            "time": 17.591666666666665
+          },
+          {
+            "signal": "C",
+            "window": [
+              12.65,
+              13.44
+            ],
+            "boundary": "end",
+            "delta": -0.1,
+            "outcome": "win",
+            "time": 17.591666666666665
+          },
+          {
+            "signal": "C",
+            "window": [
+              12.65,
+              13.44
+            ],
+            "boundary": "end",
+            "delta": 0.1,
+            "outcome": "win",
+            "time": 17.591666666666665
+          },
+          {
+            "signal": "C",
+            "window": [
+              12.65,
+              13.44
+            ],
+            "boundary": "end",
+            "delta": 0.2,
+            "outcome": "win",
+            "time": 17.591666666666665
+          },
+          {
+            "signal": "D",
+            "window": [
+              1,
+              33
+            ],
+            "boundary": "start",
+            "delta": -0.2,
+            "outcome": "win",
+            "time": 17.591666666666665
+          },
+          {
+            "signal": "D",
+            "window": [
+              1,
+              33
+            ],
+            "boundary": "start",
+            "delta": -0.1,
+            "outcome": "win",
+            "time": 17.591666666666665
+          },
+          {
+            "signal": "D",
+            "window": [
+              1,
+              33
+            ],
+            "boundary": "start",
+            "delta": 0.1,
+            "outcome": "win",
+            "time": 17.591666666666665
+          },
+          {
+            "signal": "D",
+            "window": [
+              1,
+              33
+            ],
+            "boundary": "start",
+            "delta": 0.2,
+            "outcome": "win",
+            "time": 17.591666666666665
+          },
+          {
+            "signal": "D",
+            "window": [
+              1,
+              33
+            ],
+            "boundary": "end",
+            "delta": -0.2,
+            "outcome": "win",
+            "time": 17.591666666666665
+          },
+          {
+            "signal": "D",
+            "window": [
+              1,
+              33
+            ],
+            "boundary": "end",
+            "delta": -0.1,
+            "outcome": "win",
+            "time": 17.591666666666665
+          },
+          {
+            "signal": "D",
+            "window": [
+              1,
+              33
+            ],
+            "boundary": "end",
+            "delta": 0.1,
+            "outcome": "win",
+            "time": 17.591666666666665
+          },
+          {
+            "signal": "D",
+            "window": [
+              1,
+              33
+            ],
+            "boundary": "end",
+            "delta": 0.2,
+            "outcome": "win",
+            "time": 17.591666666666665
+          }
+        ]
+      }
+    },
+    "L6": {
+      "reference": {
+        "outcome": "win",
+        "clearTick": 2877,
+        "clearTime": 23.975,
+        "requiredCleared": 16,
+        "target": 16
+      },
+      "windows": {
+        "A": [
+          [
+            1,
+            8.96
+          ],
+          [
+            11.2,
+            13.98
+          ],
+          [
+            15.25,
+            16.53
+          ],
+          [
+            17.5,
+            19.06
+          ],
+          [
+            20.8,
+            21.85
+          ]
+        ],
+        "B": [
+          [
+            1,
+            4.31
+          ],
+          [
+            8.4,
+            11.63
+          ],
+          [
+            12.75,
+            13.58
+          ],
+          [
+            15.8,
+            18.68
+          ],
+          [
+            19.65,
+            20.8
+          ]
+        ]
+      },
+      "allRed": {
+        "outcome": "overflow",
+        "tick": 2832,
+        "requiredCleared": 0
+      },
+      "allGreen": {
+        "outcome": "collision",
+        "tick": 741,
+        "time": 6.175,
+        "vehicles": [
+          "v4",
+          "v8"
+        ],
+        "lanes": [
+          "RIGHT",
+          "HIGH"
+        ]
+      },
+      "perturbations": {
+        "total": 80,
+        "stillWin": 70,
+        "variants": [
+          {
+            "signal": "A",
+            "window": [
+              1,
+              8.96
+            ],
+            "boundary": "start",
+            "delta": -0.2,
+            "outcome": "win",
+            "time": 23.975
+          },
+          {
+            "signal": "A",
+            "window": [
+              1,
+              8.96
+            ],
+            "boundary": "start",
+            "delta": -0.1,
+            "outcome": "win",
+            "time": 23.975
+          },
+          {
+            "signal": "A",
+            "window": [
+              1,
+              8.96
+            ],
+            "boundary": "start",
+            "delta": 0.1,
+            "outcome": "win",
+            "time": 23.975
+          },
+          {
+            "signal": "A",
+            "window": [
+              1,
+              8.96
+            ],
+            "boundary": "start",
+            "delta": 0.2,
+            "outcome": "win",
+            "time": 23.975
+          },
+          {
+            "signal": "A",
+            "window": [
+              1,
+              8.96
+            ],
+            "boundary": "end",
+            "delta": -0.2,
+            "outcome": "win",
+            "time": 23.975
+          },
+          {
+            "signal": "A",
+            "window": [
+              1,
+              8.96
+            ],
+            "boundary": "end",
+            "delta": -0.1,
+            "outcome": "win",
+            "time": 23.975
+          },
+          {
+            "signal": "A",
+            "window": [
+              1,
+              8.96
+            ],
+            "boundary": "end",
+            "delta": 0.1,
+            "outcome": "win",
+            "time": 23.975
+          },
+          {
+            "signal": "A",
+            "window": [
+              1,
+              8.96
+            ],
+            "boundary": "end",
+            "delta": 0.2,
+            "outcome": "collision",
+            "time": 14.275
+          },
+          {
+            "signal": "A",
+            "window": [
+              11.2,
+              13.98
+            ],
+            "boundary": "start",
+            "delta": -0.2,
+            "outcome": "win",
+            "time": 23.975
+          },
+          {
+            "signal": "A",
+            "window": [
+              11.2,
+              13.98
+            ],
+            "boundary": "start",
+            "delta": -0.1,
+            "outcome": "win",
+            "time": 23.975
+          },
+          {
+            "signal": "A",
+            "window": [
+              11.2,
+              13.98
+            ],
+            "boundary": "start",
+            "delta": 0.1,
+            "outcome": "win",
+            "time": 23.975
+          },
+          {
+            "signal": "A",
+            "window": [
+              11.2,
+              13.98
+            ],
+            "boundary": "start",
+            "delta": 0.2,
+            "outcome": "win",
+            "time": 23.975
+          },
+          {
+            "signal": "A",
+            "window": [
+              11.2,
+              13.98
+            ],
+            "boundary": "end",
+            "delta": -0.2,
+            "outcome": "win",
+            "time": 23.975
+          },
+          {
+            "signal": "A",
+            "window": [
+              11.2,
+              13.98
+            ],
+            "boundary": "end",
+            "delta": -0.1,
+            "outcome": "win",
+            "time": 23.975
+          },
+          {
+            "signal": "A",
+            "window": [
+              11.2,
+              13.98
+            ],
+            "boundary": "end",
+            "delta": 0.1,
+            "outcome": "win",
+            "time": 23.975
+          },
+          {
+            "signal": "A",
+            "window": [
+              11.2,
+              13.98
+            ],
+            "boundary": "end",
+            "delta": 0.2,
+            "outcome": "win",
+            "time": 23.975
+          },
+          {
+            "signal": "A",
+            "window": [
+              15.25,
+              16.53
+            ],
+            "boundary": "start",
+            "delta": -0.2,
+            "outcome": "win",
+            "time": 23.975
+          },
+          {
+            "signal": "A",
+            "window": [
+              15.25,
+              16.53
+            ],
+            "boundary": "start",
+            "delta": -0.1,
+            "outcome": "win",
+            "time": 23.975
+          },
+          {
+            "signal": "A",
+            "window": [
+              15.25,
+              16.53
+            ],
+            "boundary": "start",
+            "delta": 0.1,
+            "outcome": "win",
+            "time": 23.975
+          },
+          {
+            "signal": "A",
+            "window": [
+              15.25,
+              16.53
+            ],
+            "boundary": "start",
+            "delta": 0.2,
+            "outcome": "win",
+            "time": 23.975
+          },
+          {
+            "signal": "A",
+            "window": [
+              15.25,
+              16.53
+            ],
+            "boundary": "end",
+            "delta": -0.2,
+            "outcome": "collision",
+            "time": 18.025
+          },
+          {
+            "signal": "A",
+            "window": [
+              15.25,
+              16.53
+            ],
+            "boundary": "end",
+            "delta": -0.1,
+            "outcome": "win",
+            "time": 23.975
+          },
+          {
+            "signal": "A",
+            "window": [
+              15.25,
+              16.53
+            ],
+            "boundary": "end",
+            "delta": 0.1,
+            "outcome": "win",
+            "time": 23.975
+          },
+          {
+            "signal": "A",
+            "window": [
+              15.25,
+              16.53
+            ],
+            "boundary": "end",
+            "delta": 0.2,
+            "outcome": "collision",
+            "time": 17.25
+          },
+          {
+            "signal": "A",
+            "window": [
+              17.5,
+              19.06
+            ],
+            "boundary": "start",
+            "delta": -0.2,
+            "outcome": "win",
+            "time": 23.775
+          },
+          {
+            "signal": "A",
+            "window": [
+              17.5,
+              19.06
+            ],
+            "boundary": "start",
+            "delta": -0.1,
+            "outcome": "win",
+            "time": 23.875
+          },
+          {
+            "signal": "A",
+            "window": [
+              17.5,
+              19.06
+            ],
+            "boundary": "start",
+            "delta": 0.1,
+            "outcome": "overflow",
+            "time": 38
+          },
+          {
+            "signal": "A",
+            "window": [
+              17.5,
+              19.06
+            ],
+            "boundary": "start",
+            "delta": 0.2,
+            "outcome": "overflow",
+            "time": 38
+          },
+          {
+            "signal": "A",
+            "window": [
+              17.5,
+              19.06
+            ],
+            "boundary": "end",
+            "delta": -0.2,
+            "outcome": "win",
+            "time": 23.975
+          },
+          {
+            "signal": "A",
+            "window": [
+              17.5,
+              19.06
+            ],
+            "boundary": "end",
+            "delta": -0.1,
+            "outcome": "win",
+            "time": 23.975
+          },
+          {
+            "signal": "A",
+            "window": [
+              17.5,
+              19.06
+            ],
+            "boundary": "end",
+            "delta": 0.1,
+            "outcome": "collision",
+            "time": 19.908333333333335
+          },
+          {
+            "signal": "A",
+            "window": [
+              17.5,
+              19.06
+            ],
+            "boundary": "end",
+            "delta": 0.2,
+            "outcome": "collision",
+            "time": 19.908333333333335
+          },
+          {
+            "signal": "A",
+            "window": [
+              20.8,
+              21.85
+            ],
+            "boundary": "start",
+            "delta": -0.2,
+            "outcome": "win",
+            "time": 23.975
+          },
+          {
+            "signal": "A",
+            "window": [
+              20.8,
+              21.85
+            ],
+            "boundary": "start",
+            "delta": -0.1,
+            "outcome": "win",
+            "time": 23.975
+          },
+          {
+            "signal": "A",
+            "window": [
+              20.8,
+              21.85
+            ],
+            "boundary": "start",
+            "delta": 0.1,
+            "outcome": "win",
+            "time": 23.975
+          },
+          {
+            "signal": "A",
+            "window": [
+              20.8,
+              21.85
+            ],
+            "boundary": "start",
+            "delta": 0.2,
+            "outcome": "win",
+            "time": 23.975
+          },
+          {
+            "signal": "A",
+            "window": [
+              20.8,
+              21.85
+            ],
+            "boundary": "end",
+            "delta": -0.2,
+            "outcome": "win",
+            "time": 23.975
+          },
+          {
+            "signal": "A",
+            "window": [
+              20.8,
+              21.85
+            ],
+            "boundary": "end",
+            "delta": -0.1,
+            "outcome": "win",
+            "time": 23.975
+          },
+          {
+            "signal": "A",
+            "window": [
+              20.8,
+              21.85
+            ],
+            "boundary": "end",
+            "delta": 0.1,
+            "outcome": "win",
+            "time": 23.975
+          },
+          {
+            "signal": "A",
+            "window": [
+              20.8,
+              21.85
+            ],
+            "boundary": "end",
+            "delta": 0.2,
+            "outcome": "win",
+            "time": 23.975
+          },
+          {
+            "signal": "B",
+            "window": [
+              1,
+              4.31
+            ],
+            "boundary": "start",
+            "delta": -0.2,
+            "outcome": "win",
+            "time": 23.975
+          },
+          {
+            "signal": "B",
+            "window": [
+              1,
+              4.31
+            ],
+            "boundary": "start",
+            "delta": -0.1,
+            "outcome": "win",
+            "time": 23.975
+          },
+          {
+            "signal": "B",
+            "window": [
+              1,
+              4.31
+            ],
+            "boundary": "start",
+            "delta": 0.1,
+            "outcome": "win",
+            "time": 23.975
+          },
+          {
+            "signal": "B",
+            "window": [
+              1,
+              4.31
+            ],
+            "boundary": "start",
+            "delta": 0.2,
+            "outcome": "win",
+            "time": 23.975
+          },
+          {
+            "signal": "B",
+            "window": [
+              1,
+              4.31
+            ],
+            "boundary": "end",
+            "delta": -0.2,
+            "outcome": "win",
+            "time": 23.975
+          },
+          {
+            "signal": "B",
+            "window": [
+              1,
+              4.31
+            ],
+            "boundary": "end",
+            "delta": -0.1,
+            "outcome": "win",
+            "time": 23.975
+          },
+          {
+            "signal": "B",
+            "window": [
+              1,
+              4.31
+            ],
+            "boundary": "end",
+            "delta": 0.1,
+            "outcome": "win",
+            "time": 23.975
+          },
+          {
+            "signal": "B",
+            "window": [
+              1,
+              4.31
+            ],
+            "boundary": "end",
+            "delta": 0.2,
+            "outcome": "win",
+            "time": 23.975
+          },
+          {
+            "signal": "B",
+            "window": [
+              8.4,
+              11.63
+            ],
+            "boundary": "start",
+            "delta": -0.2,
+            "outcome": "win",
+            "time": 23.975
+          },
+          {
+            "signal": "B",
+            "window": [
+              8.4,
+              11.63
+            ],
+            "boundary": "start",
+            "delta": -0.1,
+            "outcome": "win",
+            "time": 23.975
+          },
+          {
+            "signal": "B",
+            "window": [
+              8.4,
+              11.63
+            ],
+            "boundary": "start",
+            "delta": 0.1,
+            "outcome": "win",
+            "time": 23.975
+          },
+          {
+            "signal": "B",
+            "window": [
+              8.4,
+              11.63
+            ],
+            "boundary": "start",
+            "delta": 0.2,
+            "outcome": "win",
+            "time": 23.975
+          },
+          {
+            "signal": "B",
+            "window": [
+              8.4,
+              11.63
+            ],
+            "boundary": "end",
+            "delta": -0.2,
+            "outcome": "win",
+            "time": 23.975
+          },
+          {
+            "signal": "B",
+            "window": [
+              8.4,
+              11.63
+            ],
+            "boundary": "end",
+            "delta": -0.1,
+            "outcome": "win",
+            "time": 23.975
+          },
+          {
+            "signal": "B",
+            "window": [
+              8.4,
+              11.63
+            ],
+            "boundary": "end",
+            "delta": 0.1,
+            "outcome": "win",
+            "time": 23.975
+          },
+          {
+            "signal": "B",
+            "window": [
+              8.4,
+              11.63
+            ],
+            "boundary": "end",
+            "delta": 0.2,
+            "outcome": "win",
+            "time": 23.975
+          },
+          {
+            "signal": "B",
+            "window": [
+              12.75,
+              13.58
+            ],
+            "boundary": "start",
+            "delta": -0.2,
+            "outcome": "win",
+            "time": 23.975
+          },
+          {
+            "signal": "B",
+            "window": [
+              12.75,
+              13.58
+            ],
+            "boundary": "start",
+            "delta": -0.1,
+            "outcome": "win",
+            "time": 23.975
+          },
+          {
+            "signal": "B",
+            "window": [
+              12.75,
+              13.58
+            ],
+            "boundary": "start",
+            "delta": 0.1,
+            "outcome": "win",
+            "time": 23.975
+          },
+          {
+            "signal": "B",
+            "window": [
+              12.75,
+              13.58
+            ],
+            "boundary": "start",
+            "delta": 0.2,
+            "outcome": "win",
+            "time": 23.975
+          },
+          {
+            "signal": "B",
+            "window": [
+              12.75,
+              13.58
+            ],
+            "boundary": "end",
+            "delta": -0.2,
+            "outcome": "win",
+            "time": 23.975
+          },
+          {
+            "signal": "B",
+            "window": [
+              12.75,
+              13.58
+            ],
+            "boundary": "end",
+            "delta": -0.1,
+            "outcome": "win",
+            "time": 23.975
+          },
+          {
+            "signal": "B",
+            "window": [
+              12.75,
+              13.58
+            ],
+            "boundary": "end",
+            "delta": 0.1,
+            "outcome": "win",
+            "time": 23.975
+          },
+          {
+            "signal": "B",
+            "window": [
+              12.75,
+              13.58
+            ],
+            "boundary": "end",
+            "delta": 0.2,
+            "outcome": "win",
+            "time": 23.975
+          },
+          {
+            "signal": "B",
+            "window": [
+              15.8,
+              18.68
+            ],
+            "boundary": "start",
+            "delta": -0.2,
+            "outcome": "win",
+            "time": 23.975
+          },
+          {
+            "signal": "B",
+            "window": [
+              15.8,
+              18.68
+            ],
+            "boundary": "start",
+            "delta": -0.1,
+            "outcome": "win",
+            "time": 23.975
+          },
+          {
+            "signal": "B",
+            "window": [
+              15.8,
+              18.68
+            ],
+            "boundary": "start",
+            "delta": 0.1,
+            "outcome": "win",
+            "time": 23.975
+          },
+          {
+            "signal": "B",
+            "window": [
+              15.8,
+              18.68
+            ],
+            "boundary": "start",
+            "delta": 0.2,
+            "outcome": "win",
+            "time": 23.975
+          },
+          {
+            "signal": "B",
+            "window": [
+              15.8,
+              18.68
+            ],
+            "boundary": "end",
+            "delta": -0.2,
+            "outcome": "win",
+            "time": 23.975
+          },
+          {
+            "signal": "B",
+            "window": [
+              15.8,
+              18.68
+            ],
+            "boundary": "end",
+            "delta": -0.1,
+            "outcome": "win",
+            "time": 23.975
+          },
+          {
+            "signal": "B",
+            "window": [
+              15.8,
+              18.68
+            ],
+            "boundary": "end",
+            "delta": 0.1,
+            "outcome": "win",
+            "time": 23.975
+          },
+          {
+            "signal": "B",
+            "window": [
+              15.8,
+              18.68
+            ],
+            "boundary": "end",
+            "delta": 0.2,
+            "outcome": "win",
+            "time": 23.975
+          },
+          {
+            "signal": "B",
+            "window": [
+              19.65,
+              20.8
+            ],
+            "boundary": "start",
+            "delta": -0.2,
+            "outcome": "win",
+            "time": 23.975
+          },
+          {
+            "signal": "B",
+            "window": [
+              19.65,
+              20.8
+            ],
+            "boundary": "start",
+            "delta": -0.1,
+            "outcome": "win",
+            "time": 23.975
+          },
+          {
+            "signal": "B",
+            "window": [
+              19.65,
+              20.8
+            ],
+            "boundary": "start",
+            "delta": 0.1,
+            "outcome": "win",
+            "time": 23.975
+          },
+          {
+            "signal": "B",
+            "window": [
+              19.65,
+              20.8
+            ],
+            "boundary": "start",
+            "delta": 0.2,
+            "outcome": "win",
+            "time": 23.975
+          },
+          {
+            "signal": "B",
+            "window": [
+              19.65,
+              20.8
+            ],
+            "boundary": "end",
+            "delta": -0.2,
+            "outcome": "overflow",
+            "time": 38
+          },
+          {
+            "signal": "B",
+            "window": [
+              19.65,
+              20.8
+            ],
+            "boundary": "end",
+            "delta": -0.1,
+            "outcome": "overflow",
+            "time": 38
+          },
+          {
+            "signal": "B",
+            "window": [
+              19.65,
+              20.8
+            ],
+            "boundary": "end",
+            "delta": 0.1,
+            "outcome": "win",
+            "time": 23.975
+          },
+          {
+            "signal": "B",
+            "window": [
+              19.65,
+              20.8
+            ],
+            "boundary": "end",
+            "delta": 0.2,
+            "outcome": "collision",
+            "time": 21.675
+          }
+        ]
+      }
+    },
+    "L7": {
+      "reference": {
+        "outcome": "win",
+        "clearTick": 2841,
+        "clearTime": 23.675,
+        "requiredCleared": 6,
+        "target": 6
+      },
+      "windows": {
+        "A": [
+          [
+            6,
+            9
+          ],
+          [
+            13.2,
+            14.2
+          ]
+        ]
+      },
+      "allRed": {
+        "outcome": "overflow",
+        "tick": 2724,
+        "requiredCleared": 0
+      },
+      "allGreen": {
+        "outcome": "collision",
+        "tick": 558,
+        "time": 4.65,
+        "vehicles": [
+          "v2",
+          "v1"
+        ],
+        "lanes": [
+          "R_left",
+          "W_in"
+        ]
+      },
+      "perturbations": {
+        "total": 16,
+        "stillWin": 16,
+        "variants": [
+          {
+            "signal": "A",
+            "window": [
+              6,
+              9
+            ],
+            "boundary": "start",
+            "delta": -0.2,
+            "outcome": "win",
+            "time": 23.675
+          },
+          {
+            "signal": "A",
+            "window": [
+              6,
+              9
+            ],
+            "boundary": "start",
+            "delta": -0.1,
+            "outcome": "win",
+            "time": 23.675
+          },
+          {
+            "signal": "A",
+            "window": [
+              6,
+              9
+            ],
+            "boundary": "start",
+            "delta": 0.1,
+            "outcome": "win",
+            "time": 23.675
+          },
+          {
+            "signal": "A",
+            "window": [
+              6,
+              9
+            ],
+            "boundary": "start",
+            "delta": 0.2,
+            "outcome": "win",
+            "time": 23.675
+          },
+          {
+            "signal": "A",
+            "window": [
+              6,
+              9
+            ],
+            "boundary": "end",
+            "delta": -0.2,
+            "outcome": "win",
+            "time": 23.675
+          },
+          {
+            "signal": "A",
+            "window": [
+              6,
+              9
+            ],
+            "boundary": "end",
+            "delta": -0.1,
+            "outcome": "win",
+            "time": 23.675
+          },
+          {
+            "signal": "A",
+            "window": [
+              6,
+              9
+            ],
+            "boundary": "end",
+            "delta": 0.1,
+            "outcome": "win",
+            "time": 23.675
+          },
+          {
+            "signal": "A",
+            "window": [
+              6,
+              9
+            ],
+            "boundary": "end",
+            "delta": 0.2,
+            "outcome": "win",
+            "time": 23.675
+          },
+          {
+            "signal": "A",
+            "window": [
+              13.2,
+              14.2
+            ],
+            "boundary": "start",
+            "delta": -0.2,
+            "outcome": "win",
+            "time": 23.475
+          },
+          {
+            "signal": "A",
+            "window": [
+              13.2,
+              14.2
+            ],
+            "boundary": "start",
+            "delta": -0.1,
+            "outcome": "win",
+            "time": 23.575
+          },
+          {
+            "signal": "A",
+            "window": [
+              13.2,
+              14.2
+            ],
+            "boundary": "start",
+            "delta": 0.1,
+            "outcome": "win",
+            "time": 23.775
+          },
+          {
+            "signal": "A",
+            "window": [
+              13.2,
+              14.2
+            ],
+            "boundary": "start",
+            "delta": 0.2,
+            "outcome": "win",
+            "time": 23.875
+          },
+          {
+            "signal": "A",
+            "window": [
+              13.2,
+              14.2
+            ],
+            "boundary": "end",
+            "delta": -0.2,
+            "outcome": "win",
+            "time": 23.675
+          },
+          {
+            "signal": "A",
+            "window": [
+              13.2,
+              14.2
+            ],
+            "boundary": "end",
+            "delta": -0.1,
+            "outcome": "win",
+            "time": 23.675
+          },
+          {
+            "signal": "A",
+            "window": [
+              13.2,
+              14.2
+            ],
+            "boundary": "end",
+            "delta": 0.1,
+            "outcome": "win",
+            "time": 23.675
+          },
+          {
+            "signal": "A",
+            "window": [
+              13.2,
+              14.2
+            ],
+            "boundary": "end",
+            "delta": 0.2,
+            "outcome": "win",
+            "time": 23.675
+          }
+        ]
+      }
+    }
+  },
+  "checks": [
+    {
+      "name": "ref L1 wins with all required cleared",
+      "pass": true,
+      "detail": "win @ 10.1750s, cleared 3/3"
+    },
+    {
+      "name": "ref L1 exits counted once per event",
+      "pass": true,
+      "detail": "3 exits"
+    },
+    {
+      "name": "ref L2 wins with all required cleared",
+      "pass": true,
+      "detail": "win @ 20.7917s, cleared 5/5"
+    },
+    {
+      "name": "ref L2 exits counted once per event",
+      "pass": true,
+      "detail": "7 exits"
+    },
+    {
+      "name": "ref L3 wins with all required cleared",
+      "pass": true,
+      "detail": "win @ 24.6750s, cleared 8/8"
+    },
+    {
+      "name": "ref L3 exits counted once per event",
+      "pass": true,
+      "detail": "12 exits"
+    },
+    {
+      "name": "ref L4 wins with all required cleared",
+      "pass": true,
+      "detail": "win @ 16.8750s, cleared 12/12"
+    },
+    {
+      "name": "ref L4 exits counted once per event",
+      "pass": true,
+      "detail": "12 exits"
+    },
+    {
+      "name": "ref L5 wins with all required cleared",
+      "pass": true,
+      "detail": "win @ 17.5917s, cleared 12/12"
+    },
+    {
+      "name": "ref L5 exits counted once per event",
+      "pass": true,
+      "detail": "14 exits"
+    },
+    {
+      "name": "ref L6 wins with all required cleared",
+      "pass": true,
+      "detail": "win @ 23.9750s, cleared 16/16"
+    },
+    {
+      "name": "ref L6 exits counted once per event",
+      "pass": true,
+      "detail": "25 exits"
+    },
+    {
+      "name": "ref L7 wins with all required cleared",
+      "pass": true,
+      "detail": "win @ 23.6750s, cleared 6/6"
+    },
+    {
+      "name": "ref L7 exits counted once per event",
+      "pass": true,
+      "detail": "10 exits"
+    },
+    {
+      "name": "allRed L1 -> fails (timeout or queue overflow), 0 required",
+      "pass": true,
+      "detail": "timeout @ 16s"
+    },
+    {
+      "name": "allGreen L1 -> win",
+      "pass": true,
+      "detail": "win @ 9.4917s"
+    },
+    {
+      "name": "allRed L2 -> fails (timeout or queue overflow), 0 required",
+      "pass": true,
+      "detail": "overflow @ 26.4s"
+    },
+    {
+      "name": "allGreen L2 -> collision",
+      "pass": true,
+      "detail": "collision @ 5.6500s"
+    },
+    {
+      "name": "allRed L3 -> fails (timeout or queue overflow), 0 required",
+      "pass": true,
+      "detail": "overflow @ 21.1s"
+    },
+    {
+      "name": "allGreen L3 -> collision",
+      "pass": true,
+      "detail": "collision @ 20.4500s"
+    },
+    {
+      "name": "allRed L4 -> fails (timeout or queue overflow), 0 required",
+      "pass": true,
+      "detail": "overflow @ 13.8s"
+    },
+    {
+      "name": "allGreen L4 -> collision",
+      "pass": true,
+      "detail": "collision @ 5.6500s"
+    },
+    {
+      "name": "allRed L5 -> fails (timeout or queue overflow), 0 required",
+      "pass": true,
+      "detail": "overflow @ 20s"
+    },
+    {
+      "name": "allGreen L5 -> collision",
+      "pass": true,
+      "detail": "collision @ 3.7500s"
+    },
+    {
+      "name": "allRed L6 -> fails (timeout or queue overflow), 0 required",
+      "pass": true,
+      "detail": "overflow @ 23.6s"
+    },
+    {
+      "name": "allGreen L6 -> collision",
+      "pass": true,
+      "detail": "collision @ 6.1750s"
+    },
+    {
+      "name": "allRed L7 -> fails (timeout or queue overflow), 0 required",
+      "pass": true,
+      "detail": "overflow @ 22.7s"
+    },
+    {
+      "name": "allGreen L7 -> collision",
+      "pass": true,
+      "detail": "collision @ 4.6500s"
+    },
+    {
+      "name": "commitment: red A cannot stop committed car (keeps moving)",
+      "pass": true,
+      "detail": "s@red=514.00"
+    },
+    {
+      "name": "commitment: downstream red B stops the same car at B line",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "queue: per-lane limit never exceeded; overflow ends the run; waiting vehicles (incl. buses) preserved",
+      "pass": true,
+      "detail": "outcome overflow @ 23.60s lane LEFT, maxQueue 10/10, spawned 43, overflow 1, buses waiting 6"
+    },
+    {
+      "name": "queue: without queueLimit the queue is unbounded and all-red reaches the deadline (v1 behavior)",
+      "pass": true,
+      "detail": "timeout @ 28s"
+    },
+    {
+      "name": "counting: every exit has rear >= lane length; each event exits once",
+      "pass": true,
+      "detail": "25 exits, 8 buses"
+    },
+    {
+      "name": "counting: L6 reference cleared all 16 required",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "determinism: identical command log, different step batching -> identical hash/outcome",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "determinism: serialize/pause/resume mid-run -> identical continuation",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "swept unit: exact boundary contact is not a collision",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "swept unit: strict interior overlap is a collision",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "swept unit: one-tick fast crossing detected",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "swept: L2 all-green crossing collision names both vehicles and lanes",
+      "pass": true,
+      "detail": "H,V L2-SH-e1,L2-SV-e1 @ 5.6500s"
+    },
+    {
+      "name": "swept: blocked-crossing collision detected (queue spilled into crossing hit by ambient)",
+      "pass": true,
+      "detail": "V,LOW @ 16.3500s"
+    },
+    {
+      "name": "swept: fast crossing within one tick detected with correct ids",
+      "pass": true,
+      "detail": "collision h1,v1 @ 3.8583s"
+    },
+    {
+      "name": "grouped: one A toggle releases both LEFT and RIGHT lanes",
+      "pass": true,
+      "detail": "LEFT 3 RIGHT 3"
+    },
+    {
+      "name": "grouped: shared-crossing collision attributed to one lane pair (no merged zone)",
+      "pass": true,
+      "detail": "RIGHT,HIGH @ 6.1750s"
+    },
+    {
+      "name": "validation: semantic validator rejects 17 mutated packs",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "validation: shipped pack is clean",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "roundabout: entering the merge into a circulating car is a detected collision",
+      "pass": true,
+      "detail": "collision @ 4.65s lanes=R,W events=ring1,req1"
+    },
+    {
+      "name": "roundabout: entering on a clear gap succeeds (no false collision)",
+      "pass": true,
+      "detail": "win @ 6.00s cleared 1"
+    },
+    {
+      "name": "roundabout: required cars traverse ring lanes (route following works)",
+      "pass": true,
+      "detail": "outcome win, required lanes seen: W_in,R_left,R_top,R_right,E_out"
+    },
+    {
+      "name": "transfer: diverging car does not hit the min-gap follower going straight (ghost leader)",
+      "pass": true,
+      "detail": "win @ 9.000s "
+    },
+    {
+      "name": "transfer: diverging bus does not hit the min-gap follower going straight (ghost leader)",
+      "pass": true,
+      "detail": "win @ 9.000s "
+    },
+    {
+      "name": "transfer: min-gap platoon (car, bus, car) turns a corner without collision",
+      "pass": true,
+      "detail": "win @ 12.333s"
+    },
+    {
+      "name": "fairness L1: base schedule wins; perturbations documented (8/8 still win)",
+      "pass": true,
+      "detail": "8/8 win"
+    },
+    {
+      "name": "fairness L2: base schedule wins; perturbations documented (8/8 still win)",
+      "pass": true,
+      "detail": "8/8 win"
+    },
+    {
+      "name": "fairness L3: base schedule wins; perturbations documented (32/32 still win)",
+      "pass": true,
+      "detail": "32/32 win"
+    },
+    {
+      "name": "fairness L4: base schedule wins; perturbations documented (16/16 still win)",
+      "pass": true,
+      "detail": "16/16 win"
+    },
+    {
+      "name": "fairness L5: base schedule wins; perturbations documented (48/48 still win)",
+      "pass": true,
+      "detail": "48/48 win"
+    },
+    {
+      "name": "fairness L6: base schedule wins; perturbations documented (70/80 still win)",
+      "pass": true,
+      "detail": "70/80 win"
+    },
+    {
+      "name": "fairness L7: base schedule wins; perturbations documented (16/16 still win)",
+      "pass": true,
+      "detail": "16/16 win"
+    },
+    {
+      "name": "parity: reference clear ticks within one tick of the committed report",
+      "pass": true,
+      "detail": "engine changed, outcomes unchanged"
+    }
+  ],
+  "allPassed": true
+}

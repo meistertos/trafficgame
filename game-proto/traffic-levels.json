@@ -1,0 +1,1524 @@
+{
+  "$schema": "./traffic-levels.schema.json",
+  "schemaVersion": 1,
+  "packName": "mind-the-gap-prototype",
+  "rules": {
+    "tickRate": 120,
+    "world": {
+      "width": 1200,
+      "height": 800
+    },
+    "minGap": 12,
+    "queueLimit": 12,
+    "signalsStartRed": true,
+    "vehicleTypes": {
+      "car": {
+        "length": 28,
+        "width": 14
+      },
+      "bus": {
+        "length": 52,
+        "width": 14
+      }
+    }
+  },
+  "levels": [
+    {
+      "id": "L1",
+      "title": "First Release",
+      "lesson": "Click a light, release a queue, and understand exit counting.",
+      "tutorial": "Click A to turn it green. Marked cars count when they leave the map.",
+      "deadline": 16,
+      "requiredCount": 3,
+      "queueLimit": 6,
+      "lanes": [
+        {
+          "id": "V",
+          "from": [
+            600,
+            0
+          ],
+          "to": [
+            600,
+            800
+          ],
+          "speed": 100
+        }
+      ],
+      "signals": [
+        {
+          "id": "A",
+          "lanes": [
+            "V"
+          ],
+          "stopS": 340
+        }
+      ],
+      "streams": [
+        {
+          "id": "S1",
+          "lane": "V",
+          "required": true,
+          "repeat": {
+            "every": 1.3,
+            "type": "car"
+          },
+          "events": [
+            {
+              "id": "L1-S1-e1",
+              "at": 0,
+              "type": "car"
+            },
+            {
+              "id": "L1-S1-e2",
+              "at": 0.8,
+              "type": "car"
+            },
+            {
+              "id": "L1-S1-e3",
+              "at": 1.5,
+              "type": "car"
+            }
+          ]
+        }
+      ],
+      "referenceSolution": {
+        "windows": {
+          "A": [
+            [
+              4.5,
+              16
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "L2",
+      "title": "Find the Gap",
+      "lesson": "Release traffic between an unstoppable stream.",
+      "tutorial": "The vertical traffic will not stop. Let a gap reach the crossing before you release your queue.",
+      "deadline": 28,
+      "requiredCount": 5,
+      "queueLimit": 7,
+      "lanes": [
+        {
+          "id": "H",
+          "from": [
+            0,
+            400
+          ],
+          "to": [
+            1200,
+            400
+          ],
+          "speed": 100
+        },
+        {
+          "id": "V",
+          "from": [
+            600,
+            0
+          ],
+          "to": [
+            600,
+            800
+          ],
+          "speed": 100
+        }
+      ],
+      "signals": [
+        {
+          "id": "A",
+          "lanes": [
+            "H"
+          ],
+          "stopS": 540
+        }
+      ],
+      "streams": [
+        {
+          "id": "SH",
+          "lane": "H",
+          "required": true,
+          "repeat": {
+            "every": 1.1,
+            "type": "car"
+          },
+          "events": [
+            {
+              "id": "L2-SH-e1",
+              "at": 0,
+              "type": "car"
+            },
+            {
+              "id": "L2-SH-e2",
+              "at": 0.9,
+              "type": "car"
+            },
+            {
+              "id": "L2-SH-e3",
+              "at": 1.4,
+              "type": "car"
+            },
+            {
+              "id": "L2-SH-e4",
+              "at": 7.3,
+              "type": "car"
+            },
+            {
+              "id": "L2-SH-e5",
+              "at": 8.8,
+              "type": "car"
+            }
+          ]
+        },
+        {
+          "id": "SV",
+          "lane": "V",
+          "required": false,
+          "repeat": {
+            "every": 2,
+            "type": "car"
+          },
+          "events": [
+            {
+              "id": "L2-SV-e1",
+              "at": 1.6,
+              "type": "car"
+            },
+            {
+              "id": "L2-SV-e2",
+              "at": 8.4,
+              "type": "car"
+            },
+            {
+              "id": "L2-SV-e3",
+              "at": 13.2,
+              "type": "car"
+            },
+            {
+              "id": "L2-SV-e4",
+              "at": 20.8,
+              "type": "car"
+            },
+            {
+              "id": "L2-SV-e5",
+              "at": 25.7,
+              "type": "car"
+            }
+          ]
+        }
+      ],
+      "referenceSolution": {
+        "windows": {
+          "A": [
+            [
+              6.2,
+              15.06
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "L3",
+      "title": "Two Crossings",
+      "lesson": "Coordinate signals along the same route.",
+      "tutorial": "A gets cars through the first crossing. B must get the same cars through the next.",
+      "deadline": 32,
+      "requiredCount": 8,
+      "queueLimit": 8,
+      "lanes": [
+        {
+          "id": "V",
+          "from": [
+            400,
+            800
+          ],
+          "to": [
+            400,
+            0
+          ],
+          "speed": 100
+        },
+        {
+          "id": "LOW",
+          "from": [
+            1200,
+            560
+          ],
+          "to": [
+            0,
+            560
+          ],
+          "speed": 100
+        },
+        {
+          "id": "HIGH",
+          "from": [
+            0,
+            240
+          ],
+          "to": [
+            1200,
+            240
+          ],
+          "speed": 100
+        }
+      ],
+      "signals": [
+        {
+          "id": "A",
+          "lanes": [
+            "V"
+          ],
+          "stopS": 180
+        },
+        {
+          "id": "B",
+          "lanes": [
+            "V"
+          ],
+          "stopS": 500
+        }
+      ],
+      "streams": [
+        {
+          "id": "SV",
+          "lane": "V",
+          "required": true,
+          "repeat": {
+            "every": 1.2,
+            "type": "car"
+          },
+          "events": [
+            {
+              "id": "L3-SV-e1",
+              "at": 0,
+              "type": "car"
+            },
+            {
+              "id": "L3-SV-e2",
+              "at": 0.9,
+              "type": "car"
+            },
+            {
+              "id": "L3-SV-e3",
+              "at": 1.3,
+              "type": "car"
+            },
+            {
+              "id": "L3-SV-e4",
+              "at": 6.5,
+              "type": "car"
+            },
+            {
+              "id": "L3-SV-e5",
+              "at": 7.8,
+              "type": "car"
+            },
+            {
+              "id": "L3-SV-e6",
+              "at": 8.9,
+              "type": "car"
+            },
+            {
+              "id": "L3-SV-e7",
+              "at": 13.4,
+              "type": "car"
+            },
+            {
+              "id": "L3-SV-e8",
+              "at": 15.1,
+              "type": "car"
+            }
+          ]
+        },
+        {
+          "id": "SLOW",
+          "lane": "LOW",
+          "required": false,
+          "repeat": {
+            "every": 3.5,
+            "type": "car"
+          },
+          "events": [
+            {
+              "id": "L3-SLOW-e1",
+              "at": 0.4,
+              "type": "car"
+            },
+            {
+              "id": "L3-SLOW-e2",
+              "at": 8.7,
+              "type": "car"
+            },
+            {
+              "id": "L3-SLOW-e3",
+              "at": 15.2,
+              "type": "car"
+            },
+            {
+              "id": "L3-SLOW-e4",
+              "at": 24.6,
+              "type": "car"
+            }
+          ]
+        },
+        {
+          "id": "SHIGH",
+          "lane": "HIGH",
+          "required": false,
+          "repeat": {
+            "every": 3,
+            "type": "car"
+          },
+          "events": [
+            {
+              "id": "L3-SHIGH-e1",
+              "at": 0.2,
+              "type": "car"
+            },
+            {
+              "id": "L3-SHIGH-e2",
+              "at": 7.4,
+              "type": "car"
+            },
+            {
+              "id": "L3-SHIGH-e3",
+              "at": 16.8,
+              "type": "car"
+            },
+            {
+              "id": "L3-SHIGH-e4",
+              "at": 23.1,
+              "type": "car"
+            }
+          ]
+        }
+      ],
+      "referenceSolution": {
+        "windows": {
+          "A": [
+            [
+              1,
+              13.88
+            ],
+            [
+              15.2,
+              16.16
+            ],
+            [
+              18.2,
+              21.6
+            ]
+          ],
+          "B": [
+            [
+              1,
+              31
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "L4",
+      "title": "Share the Junction",
+      "lesson": "Deliberately share a crossing between two controlled queues.",
+      "tutorial": "Turn one approach red, let the last car clear, then release the other.",
+      "deadline": 25,
+      "requiredCount": 12,
+      "queueLimit": 8,
+      "lanes": [
+        {
+          "id": "H",
+          "from": [
+            0,
+            400
+          ],
+          "to": [
+            1200,
+            400
+          ],
+          "speed": 100
+        },
+        {
+          "id": "V",
+          "from": [
+            600,
+            0
+          ],
+          "to": [
+            600,
+            800
+          ],
+          "speed": 100
+        }
+      ],
+      "signals": [
+        {
+          "id": "A",
+          "lanes": [
+            "H"
+          ],
+          "stopS": 540
+        },
+        {
+          "id": "B",
+          "lanes": [
+            "V"
+          ],
+          "stopS": 340
+        }
+      ],
+      "streams": [
+        {
+          "id": "SH",
+          "lane": "H",
+          "required": true,
+          "repeat": {
+            "every": 1,
+            "type": "car"
+          },
+          "events": [
+            {
+              "id": "L4-SH-e1",
+              "at": 0,
+              "type": "car"
+            },
+            {
+              "id": "L4-SH-e2",
+              "at": 0.7,
+              "type": "car"
+            },
+            {
+              "id": "L4-SH-e3",
+              "at": 1.1,
+              "type": "car"
+            },
+            {
+              "id": "L4-SH-e4",
+              "at": 1.8,
+              "type": "car"
+            },
+            {
+              "id": "L4-SH-e5",
+              "at": 2.2,
+              "type": "car"
+            },
+            {
+              "id": "L4-SH-e6",
+              "at": 2.9,
+              "type": "car"
+            }
+          ]
+        },
+        {
+          "id": "SV",
+          "lane": "V",
+          "required": true,
+          "repeat": {
+            "every": 1,
+            "type": "car"
+          },
+          "events": [
+            {
+              "id": "L4-SV-e1",
+              "at": 0.3,
+              "type": "car"
+            },
+            {
+              "id": "L4-SV-e2",
+              "at": 0.6,
+              "type": "car"
+            },
+            {
+              "id": "L4-SV-e3",
+              "at": 1.4,
+              "type": "car"
+            },
+            {
+              "id": "L4-SV-e4",
+              "at": 1.9,
+              "type": "car"
+            },
+            {
+              "id": "L4-SV-e5",
+              "at": 2.5,
+              "type": "car"
+            },
+            {
+              "id": "L4-SV-e6",
+              "at": 2.8,
+              "type": "car"
+            }
+          ]
+        }
+      ],
+      "referenceSolution": {
+        "windows": {
+          "A": [
+            [
+              1,
+              9
+            ]
+          ],
+          "B": [
+            [
+              10,
+              24.9
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "L5",
+      "title": "Moving Gaps",
+      "lesson": "A safe window reaches different junctions at different times.",
+      "tutorial": "Watch where each gap is going. The four lights need different timing.",
+      "deadline": 34,
+      "requiredCount": 12,
+      "queueLimit": 9,
+      "lanes": [
+        {
+          "id": "LEFT",
+          "from": [
+            360,
+            800
+          ],
+          "to": [
+            360,
+            0
+          ],
+          "speed": 100
+        },
+        {
+          "id": "RIGHT",
+          "from": [
+            840,
+            800
+          ],
+          "to": [
+            840,
+            0
+          ],
+          "speed": 100
+        },
+        {
+          "id": "LOW",
+          "from": [
+            0,
+            560
+          ],
+          "to": [
+            1200,
+            560
+          ],
+          "speed": 100
+        },
+        {
+          "id": "HIGH",
+          "from": [
+            1200,
+            240
+          ],
+          "to": [
+            0,
+            240
+          ],
+          "speed": 100
+        }
+      ],
+      "signals": [
+        {
+          "id": "A",
+          "lanes": [
+            "LEFT"
+          ],
+          "stopS": 180
+        },
+        {
+          "id": "B",
+          "lanes": [
+            "LEFT"
+          ],
+          "stopS": 500
+        },
+        {
+          "id": "C",
+          "lanes": [
+            "RIGHT"
+          ],
+          "stopS": 180
+        },
+        {
+          "id": "D",
+          "lanes": [
+            "RIGHT"
+          ],
+          "stopS": 500
+        }
+      ],
+      "streams": [
+        {
+          "id": "SLEFT",
+          "lane": "LEFT",
+          "required": true,
+          "repeat": {
+            "every": 1.3,
+            "type": "car"
+          },
+          "events": [
+            {
+              "id": "L5-SLEFT-e1",
+              "at": 0,
+              "type": "car"
+            },
+            {
+              "id": "L5-SLEFT-e2",
+              "at": 0.8,
+              "type": "car"
+            },
+            {
+              "id": "L5-SLEFT-e3",
+              "at": 1.5,
+              "type": "car"
+            },
+            {
+              "id": "L5-SLEFT-e4",
+              "at": 7.4,
+              "type": "car"
+            },
+            {
+              "id": "L5-SLEFT-e5",
+              "at": 8.7,
+              "type": "car"
+            },
+            {
+              "id": "L5-SLEFT-e6",
+              "at": 9.6,
+              "type": "car"
+            }
+          ]
+        },
+        {
+          "id": "SRIGHT",
+          "lane": "RIGHT",
+          "required": true,
+          "repeat": {
+            "every": 1.4,
+            "type": "car"
+          },
+          "events": [
+            {
+              "id": "L5-SRIGHT-e1",
+              "at": 0.2,
+              "type": "car"
+            },
+            {
+              "id": "L5-SRIGHT-e2",
+              "at": 0.7,
+              "type": "car"
+            },
+            {
+              "id": "L5-SRIGHT-e3",
+              "at": 1.3,
+              "type": "car"
+            },
+            {
+              "id": "L5-SRIGHT-e4",
+              "at": 8.2,
+              "type": "car"
+            },
+            {
+              "id": "L5-SRIGHT-e5",
+              "at": 8.8,
+              "type": "car"
+            },
+            {
+              "id": "L5-SRIGHT-e6",
+              "at": 9.4,
+              "type": "car"
+            }
+          ]
+        },
+        {
+          "id": "SLOW",
+          "lane": "LOW",
+          "required": false,
+          "repeat": {
+            "every": 3,
+            "type": "car"
+          },
+          "events": [
+            {
+              "id": "L5-SLOW-e1",
+              "at": 0.5,
+              "type": "car"
+            },
+            {
+              "id": "L5-SLOW-e2",
+              "at": 6.8,
+              "type": "car"
+            },
+            {
+              "id": "L5-SLOW-e3",
+              "at": 14.4,
+              "type": "car"
+            },
+            {
+              "id": "L5-SLOW-e4",
+              "at": 20.2,
+              "type": "car"
+            },
+            {
+              "id": "L5-SLOW-e5",
+              "at": 28.7,
+              "type": "car"
+            }
+          ]
+        },
+        {
+          "id": "SHIGH",
+          "lane": "HIGH",
+          "required": false,
+          "repeat": {
+            "every": 3.2,
+            "type": "car"
+          },
+          "events": [
+            {
+              "id": "L5-SHIGH-e1",
+              "at": 0.3,
+              "type": "car"
+            },
+            {
+              "id": "L5-SHIGH-e2",
+              "at": 7.6,
+              "type": "car"
+            },
+            {
+              "id": "L5-SHIGH-e3",
+              "at": 13.8,
+              "type": "car"
+            },
+            {
+              "id": "L5-SHIGH-e4",
+              "at": 21.5,
+              "type": "car"
+            },
+            {
+              "id": "L5-SHIGH-e5",
+              "at": 27.2,
+              "type": "car"
+            }
+          ]
+        }
+      ],
+      "referenceSolution": {
+        "windows": {
+          "A": [
+            [
+              1,
+              2.26
+            ],
+            [
+              5.4,
+              33
+            ]
+          ],
+          "B": [
+            [
+              1,
+              33
+            ]
+          ],
+          "C": [
+            [
+              1,
+              11.29
+            ],
+            [
+              12.65,
+              13.44
+            ]
+          ],
+          "D": [
+            [
+              1,
+              33
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "L6",
+      "title": "Rush Hour",
+      "lesson": "Clear two adjacent lanes and allow for longer vehicles.",
+      "tutorial": "One light controls both lanes. Leave enough room for the bus to clear.",
+      "deadline": 38,
+      "requiredCount": 16,
+      "queueLimit": 10,
+      "lanes": [
+        {
+          "id": "LEFT",
+          "from": [
+            540,
+            800
+          ],
+          "to": [
+            540,
+            0
+          ],
+          "speed": 100
+        },
+        {
+          "id": "RIGHT",
+          "from": [
+            580,
+            800
+          ],
+          "to": [
+            580,
+            0
+          ],
+          "speed": 100
+        },
+        {
+          "id": "LOW",
+          "from": [
+            0,
+            560
+          ],
+          "to": [
+            1200,
+            560
+          ],
+          "speed": 120
+        },
+        {
+          "id": "HIGH",
+          "from": [
+            1200,
+            240
+          ],
+          "to": [
+            0,
+            240
+          ],
+          "speed": 120
+        }
+      ],
+      "signals": [
+        {
+          "id": "A",
+          "lanes": [
+            "LEFT",
+            "RIGHT"
+          ],
+          "stopS": 180
+        },
+        {
+          "id": "B",
+          "lanes": [
+            "LEFT",
+            "RIGHT"
+          ],
+          "stopS": 500
+        }
+      ],
+      "streams": [
+        {
+          "id": "SLEFT",
+          "lane": "LEFT",
+          "required": true,
+          "repeat": {
+            "every": 1.2,
+            "type": "car"
+          },
+          "events": [
+            {
+              "id": "L6-SLEFT-e1",
+              "at": 0,
+              "type": "car"
+            },
+            {
+              "id": "L6-SLEFT-e2",
+              "at": 0.9,
+              "type": "bus"
+            },
+            {
+              "id": "L6-SLEFT-e3",
+              "at": 1.6,
+              "type": "car"
+            },
+            {
+              "id": "L6-SLEFT-e4",
+              "at": 6.7,
+              "type": "car"
+            },
+            {
+              "id": "L6-SLEFT-e5",
+              "at": 7.9,
+              "type": "car"
+            },
+            {
+              "id": "L6-SLEFT-e6",
+              "at": 8.8,
+              "type": "bus"
+            },
+            {
+              "id": "L6-SLEFT-e7",
+              "at": 13.5,
+              "type": "car"
+            },
+            {
+              "id": "L6-SLEFT-e8",
+              "at": 15.2,
+              "type": "car"
+            }
+          ]
+        },
+        {
+          "id": "SRIGHT",
+          "lane": "RIGHT",
+          "required": true,
+          "repeat": {
+            "every": 1.3,
+            "type": "car"
+          },
+          "events": [
+            {
+              "id": "L6-SRIGHT-e1",
+              "at": 0.1,
+              "type": "car"
+            },
+            {
+              "id": "L6-SRIGHT-e2",
+              "at": 0.6,
+              "type": "car"
+            },
+            {
+              "id": "L6-SRIGHT-e3",
+              "at": 1.4,
+              "type": "bus"
+            },
+            {
+              "id": "L6-SRIGHT-e4",
+              "at": 7.2,
+              "type": "car"
+            },
+            {
+              "id": "L6-SRIGHT-e5",
+              "at": 7.7,
+              "type": "bus"
+            },
+            {
+              "id": "L6-SRIGHT-e6",
+              "at": 8.5,
+              "type": "car"
+            },
+            {
+              "id": "L6-SRIGHT-e7",
+              "at": 14.3,
+              "type": "car"
+            },
+            {
+              "id": "L6-SRIGHT-e8",
+              "at": 14.9,
+              "type": "car"
+            }
+          ]
+        },
+        {
+          "id": "SLOW",
+          "lane": "LOW",
+          "required": false,
+          "repeat": {
+            "every": 2.2,
+            "type": "car"
+          },
+          "events": [
+            {
+              "id": "L6-SLOW-e1",
+              "at": 0.4,
+              "type": "car"
+            },
+            {
+              "id": "L6-SLOW-e2",
+              "at": 1.3,
+              "type": "bus"
+            },
+            {
+              "id": "L6-SLOW-e3",
+              "at": 6.6,
+              "type": "car"
+            },
+            {
+              "id": "L6-SLOW-e4",
+              "at": 8.8,
+              "type": "car"
+            },
+            {
+              "id": "L6-SLOW-e5",
+              "at": 13.2,
+              "type": "bus"
+            },
+            {
+              "id": "L6-SLOW-e6",
+              "at": 15.7,
+              "type": "car"
+            },
+            {
+              "id": "L6-SLOW-e7",
+              "at": 20.6,
+              "type": "car"
+            },
+            {
+              "id": "L6-SLOW-e8",
+              "at": 22.9,
+              "type": "bus"
+            },
+            {
+              "id": "L6-SLOW-e9",
+              "at": 27.4,
+              "type": "car"
+            },
+            {
+              "id": "L6-SLOW-e10",
+              "at": 29.8,
+              "type": "car"
+            },
+            {
+              "id": "L6-SLOW-e11",
+              "at": 34.6,
+              "type": "bus"
+            }
+          ]
+        },
+        {
+          "id": "SHIGH",
+          "lane": "HIGH",
+          "required": false,
+          "repeat": {
+            "every": 2.4,
+            "type": "car"
+          },
+          "events": [
+            {
+              "id": "L6-SHIGH-e1",
+              "at": 1.5,
+              "type": "bus"
+            },
+            {
+              "id": "L6-SHIGH-e2",
+              "at": 2.2,
+              "type": "car"
+            },
+            {
+              "id": "L6-SHIGH-e3",
+              "at": 7.5,
+              "type": "car"
+            },
+            {
+              "id": "L6-SHIGH-e4",
+              "at": 9.6,
+              "type": "bus"
+            },
+            {
+              "id": "L6-SHIGH-e5",
+              "at": 14.4,
+              "type": "car"
+            },
+            {
+              "id": "L6-SHIGH-e6",
+              "at": 16.8,
+              "type": "car"
+            },
+            {
+              "id": "L6-SHIGH-e7",
+              "at": 21.3,
+              "type": "bus"
+            },
+            {
+              "id": "L6-SHIGH-e8",
+              "at": 23.7,
+              "type": "car"
+            },
+            {
+              "id": "L6-SHIGH-e9",
+              "at": 28.6,
+              "type": "car"
+            },
+            {
+              "id": "L6-SHIGH-e10",
+              "at": 30.9,
+              "type": "bus"
+            },
+            {
+              "id": "L6-SHIGH-e11",
+              "at": 35.5,
+              "type": "car"
+            }
+          ]
+        }
+      ],
+      "referenceSolution": {
+        "windows": {
+          "A": [
+            [
+              1,
+              8.96
+            ],
+            [
+              11.2,
+              13.98
+            ],
+            [
+              15.25,
+              16.53
+            ],
+            [
+              17.5,
+              19.06
+            ],
+            [
+              20.8,
+              21.85
+            ]
+          ],
+          "B": [
+            [
+              1,
+              4.31
+            ],
+            [
+              8.4,
+              11.63
+            ],
+            [
+              12.75,
+              13.58
+            ],
+            [
+              15.8,
+              18.68
+            ],
+            [
+              19.65,
+              20.8
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "L7",
+      "title": "Roundabout",
+      "lesson": "Enter the ring only when there is a gap; circulating traffic never stops.",
+      "tutorial": "Cars already on the roundabout have priority. Release A so your cars reach the yield point between ring cars.",
+      "deadline": 30,
+      "requiredCount": 6,
+      "queueLimit": 8,
+      "lanes": [
+        {
+          "id": "R_top",
+          "from": [
+            500,
+            300
+          ],
+          "to": [
+            700,
+            300
+          ],
+          "speed": 100
+        },
+        {
+          "id": "R_right",
+          "from": [
+            700,
+            300
+          ],
+          "to": [
+            700,
+            500
+          ],
+          "speed": 100
+        },
+        {
+          "id": "R_bottom",
+          "from": [
+            700,
+            500
+          ],
+          "to": [
+            500,
+            500
+          ],
+          "speed": 100
+        },
+        {
+          "id": "R_left",
+          "from": [
+            500,
+            500
+          ],
+          "to": [
+            500,
+            300
+          ],
+          "speed": 100
+        },
+        {
+          "id": "W_in",
+          "from": [
+            0,
+            400
+          ],
+          "to": [
+            500,
+            400
+          ],
+          "speed": 100
+        },
+        {
+          "id": "E_out",
+          "from": [
+            700,
+            400
+          ],
+          "to": [
+            1200,
+            400
+          ],
+          "speed": 100
+        },
+        {
+          "id": "S_in",
+          "from": [
+            600,
+            800
+          ],
+          "to": [
+            600,
+            500
+          ],
+          "speed": 100
+        }
+      ],
+      "signals": [
+        {
+          "id": "A",
+          "lanes": [
+            "W_in"
+          ],
+          "stopS": 380
+        }
+      ],
+      "streams": [
+        {
+          "id": "S_req",
+          "lane": "W_in",
+          "required": true,
+          "repeat": {
+            "every": 1.4,
+            "type": "car"
+          },
+          "events": [
+            {
+              "id": "L7-S_req-e1",
+              "at": 0,
+              "type": "car",
+              "route": [
+                "W_in",
+                "R_left",
+                "R_top",
+                "R_right@100",
+                "E_out"
+              ]
+            },
+            {
+              "id": "L7-S_req-e2",
+              "at": 0.9,
+              "type": "car",
+              "route": [
+                "W_in",
+                "R_left",
+                "R_top",
+                "R_right@100",
+                "E_out"
+              ]
+            },
+            {
+              "id": "L7-S_req-e3",
+              "at": 1.7,
+              "type": "car",
+              "route": [
+                "W_in",
+                "R_left",
+                "R_top",
+                "R_right@100",
+                "E_out"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "S_ring",
+          "lane": "S_in",
+          "required": false,
+          "events": [
+            {
+              "id": "L7-S_ring-e1",
+              "at": 0,
+              "type": "car",
+              "route": [
+                "S_in",
+                "R_bottom",
+                "R_left",
+                "R_top",
+                "R_right@100",
+                "E_out"
+              ]
+            },
+            {
+              "id": "L7-S_ring-e2",
+              "at": 1.4,
+              "type": "car",
+              "route": [
+                "S_in",
+                "R_bottom",
+                "R_left",
+                "R_top",
+                "R_right@100",
+                "E_out"
+              ]
+            },
+            {
+              "id": "L7-S_ring-e3",
+              "at": 6,
+              "type": "car",
+              "route": [
+                "S_in",
+                "R_bottom",
+                "R_left",
+                "R_top",
+                "R_right@100",
+                "E_out"
+              ]
+            },
+            {
+              "id": "L7-S_ring-e4",
+              "at": 7.4,
+              "type": "car",
+              "route": [
+                "S_in",
+                "R_bottom",
+                "R_left",
+                "R_top",
+                "R_right@100",
+                "E_out"
+              ]
+            },
+            {
+              "id": "L7-S_ring-e5",
+              "at": 12,
+              "type": "car",
+              "route": [
+                "S_in",
+                "R_bottom",
+                "R_left",
+                "R_top",
+                "R_right@100",
+                "E_out"
+              ]
+            },
+            {
+              "id": "L7-S_ring-e6",
+              "at": 13.4,
+              "type": "car",
+              "route": [
+                "S_in",
+                "R_bottom",
+                "R_left",
+                "R_top",
+                "R_right@100",
+                "E_out"
+              ]
+            },
+            {
+              "id": "L7-S_ring-e7",
+              "at": 18,
+              "type": "car",
+              "route": [
+                "S_in",
+                "R_bottom",
+                "R_left",
+                "R_top",
+                "R_right@100",
+                "E_out"
+              ]
+            },
+            {
+              "id": "L7-S_ring-e8",
+              "at": 19.4,
+              "type": "car",
+              "route": [
+                "S_in",
+                "R_bottom",
+                "R_left",
+                "R_top",
+                "R_right@100",
+                "E_out"
+              ]
+            },
+            {
+              "id": "L7-S_ring-e9",
+              "at": 24,
+              "type": "car",
+              "route": [
+                "S_in",
+                "R_bottom",
+                "R_left",
+                "R_top",
+                "R_right@100",
+                "E_out"
+              ]
+            },
+            {
+              "id": "L7-S_ring-e10",
+              "at": 25.4,
+              "type": "car",
+              "route": [
+                "S_in",
+                "R_bottom",
+                "R_left",
+                "R_top",
+                "R_right@100",
+                "E_out"
+              ]
+            }
+          ]
+        }
+      ],
+      "referenceSolution": {
+        "windows": {
+          "A": [
+            [
+              6,
+              9
+            ],
+            [
+              13.2,
+              14.2
+            ]
+          ]
+        }
+      }
+    }
+  ]
+}

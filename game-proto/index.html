@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Mind the Gap — traffic prototype</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="app">
+  <div id="stage">
+    <canvas id="game"></canvas>
+    <div id="overlay" class="hidden"></div>
+  </div>
+  <aside id="hud">
+    <h1 id="hud-title">Mind the Gap</h1>
+    <div id="hud-level" class="hud-row">—</div>
+    <div id="hud-required" class="hud-row">Required: 0 / 0</div>
+    <div id="hud-time" class="hud-row">Time: —</div>
+    <div id="hud-through" class="hud-row">Throughput: 0</div>
+    <div id="signals" aria-label="signal controls"></div>
+    <div class="hud-buttons">
+      <button id="btn-pause" type="button">Pause (P)</button>
+      <button id="btn-audio" type="button" aria-pressed="true">Sound: on</button>
+      <button id="btn-select" type="button">Level select</button>
+    </div>
+    <p id="legend"><span class="diamond">◆</span> marked car = required (counts toward the goal)<br>
+    “NO SIGNAL” entry = unstoppable traffic<br>
+    Click a light (or keys 1–4) to toggle red/green. R = retry, P/Esc = pause.</p>
+  </aside>
+</div>
+<script type="module" src="src/main.js"></script>
+</body>
+</html>

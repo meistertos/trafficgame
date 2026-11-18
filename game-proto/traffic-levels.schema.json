@@ -1,0 +1,185 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/traffic-levels.schema.json",
+  "title": "Traffic level pack",
+  "type": "object",
+  "required": ["$schema", "schemaVersion", "rules", "levels"],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": { "type": "string" },
+    "schemaVersion": { "const": 1 },
+    "packName": { "type": "string" },
+    "rules": {
+      "type": "object",
+      "required": ["tickRate", "world", "minGap", "signalsStartRed", "vehicleTypes"],
+      "additionalProperties": false,
+      "properties": {
+        "tickRate": { "type": "integer", "minimum": 1 },
+        "world": {
+          "type": "object",
+          "required": ["width", "height"],
+          "additionalProperties": false,
+          "properties": {
+            "width": { "type": "number", "exclusiveMinimum": 0 },
+            "height": { "type": "number", "exclusiveMinimum": 0 }
+          }
+        },
+        "minGap": { "type": "number", "minimum": 0 },
+        "queueLimit": { "type": "integer", "minimum": 1 },
+        "signalsStartRed": { "const": true },
+        "vehicleTypes": {
+          "type": "object",
+          "minProperties": 1,
+          "additionalProperties": {
+            "type": "object",
+            "required": ["length", "width"],
+            "additionalProperties": false,
+            "properties": {
+              "length": { "type": "number", "exclusiveMinimum": 0 },
+              "width": { "type": "number", "exclusiveMinimum": 0 }
+            }
+          }
+        }
+      }
+    },
+    "levels": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/level" }
+    }
+  },
+  "$defs": {
+    "point": {
+      "type": "array",
+      "items": { "type": "number" },
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "lane": {
+      "type": "object",
+      "required": ["id", "from", "to", "speed"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "from": { "$ref": "#/$defs/point" },
+        "to": { "$ref": "#/$defs/point" },
+        "speed": { "type": "number", "exclusiveMinimum": 0 }
+      }
+    },
+    "signal": {
+      "type": "object",
+      "required": ["id", "lanes", "stopS"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string", "pattern": "^[A-D]$" },
+        "lanes": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "stopS": { "type": "number", "exclusiveMinimum": 0 }
+      }
+    },
+    "event": {
+      "type": "object",
+      "required": ["id", "at", "type"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "at": { "type": "number", "minimum": 0 },
+        "type": { "type": "string", "minLength": 1 },
+        "route": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "anyOf": [
+              { "type": "string", "minLength": 1 },
+              {
+                "type": "object",
+                "required": ["lane"],
+                "additionalProperties": false,
+                "properties": {
+                  "lane": { "type": "string", "minLength": 1 },
+                  "untilS": { "type": "number", "exclusiveMinimum": 0 }
+                }
+              }
+            ]
+          }
+        },
+        "loop": { "type": "boolean" }
+      }
+    },
+    "repeat": {
+      "type": "object",
+      "required": ["every", "type"],
+      "additionalProperties": false,
+      "properties": {
+        "every": { "type": "number", "exclusiveMinimum": 0 },
+        "type": { "type": "string", "minLength": 1 }
+      }
+    },
+    "stream": {
+      "type": "object",
+      "required": ["id", "lane", "required", "events"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "lane": { "type": "string", "minLength": 1 },
+        "required": { "type": "boolean" },
+        "repeat": { "$ref": "#/$defs/repeat" },
+        "events": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/event" }
+        }
+      }
+    },
+    "window": {
+      "type": "array",
+      "items": { "type": "number" },
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "level": {
+      "type": "object",
+      "required": ["id", "title", "lesson", "deadline", "requiredCount", "lanes", "signals", "streams", "referenceSolution"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "title": { "type": "string", "minLength": 1 },
+        "lesson": { "type": "string" },
+        "tutorial": { "type": "string" },
+        "deadline": { "type": "number", "exclusiveMinimum": 0 },
+        "requiredCount": { "type": "integer", "minimum": 1 },
+        "queueLimit": { "type": "integer", "minimum": 1 },
+        "lanes": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/lane" }
+        },
+        "signals": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/signal" }
+        },
+        "streams": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/stream" }
+        },
+        "referenceSolution": {
+          "type": "object",
+          "required": ["windows"],
+          "additionalProperties": false,
+          "properties": {
+            "windows": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/window" }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
