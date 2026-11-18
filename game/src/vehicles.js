@@ -1,11 +1,7 @@
 // Vehicle sprites synced from the simulation state every frame (render never feeds back into the
 // engine). Bodies come from generated textures that point along +x; rotation follows lane direction.
 import { vehicleRect } from '@engine/geometry.js';
-import { VEHICLE_COLORS } from '@engine/constants.js';
 import { RES, COLORS } from './config.js';
-
-const hex = (s) => parseInt(s.slice(1), 16);
-const PALETTE = VEHICLE_COLORS.map(hex);
 
 export class VehicleLayer {
   constructor(scene, layer) {
@@ -50,15 +46,18 @@ export class VehicleLayer {
           s.c.setPosition(cx, cy);
           s.c.setRotation(Math.atan2(def.vec.uy, def.vec.ux));
           const crashed = collision.has(veh.id);
-          const tint = crashed ? COLORS.crash : veh.type === 'bus' ? COLORS.bus : PALETTE[veh.colorIdx % PALETTE.length];
+          // flat two-tone traffic: required cars in ink (with a ◆), everything else in the enemy colour
+          const tint = crashed ? COLORS.crash : veh.required ? COLORS.car : COLORS.enemy;
           if (s.crash !== tint) { s.body.setTint(tint); s.crash = tint; }
           if (s.diamond) {
-            const w = waiting.has(veh.id) ? COLORS.red : COLORS.yellow;
+            const w = waiting.has(veh.id) ? COLORS.red : COLORS.mark;
             if (s.wait !== w) { s.diamond.setTint(w); s.wait = w; }
           }
           if (crashed) {
-            this.fx.lineStyle(4, COLORS.crash, 1);
-            this.fx.strokeCircle(cx, cy, Math.max(r.w, r.h) * 0.8);
+            this.fx.lineStyle(3, COLORS.crash, 1);
+            this.fx.strokeCircle(cx, cy, Math.max(r.w, r.h) * 0.9);
+            this.fx.lineStyle(1.5, COLORS.crash, 0.4);
+            this.fx.strokeCircle(cx, cy, Math.max(r.w, r.h) * 1.25);
           }
         }
       }
@@ -75,33 +74,30 @@ export class VehicleLayer {
   }
 }
 
-// Generated, asset-free textures (drawn at RES for crisp scaling). White bodies are tinted per vehicle.
+// Generated, asset-free textures (drawn at RES for crisp scaling): plain white pills, tinted per vehicle.
 export function makeVehicleTextures(scene, vehicleTypes) {
-  const mk = (key, len, wid, buses) => {
+  const mk = (key, len, wid, segments) => {
     if (scene.textures.exists(key)) return;
     const g = scene.make.graphics({ x: 0, y: 0 }, false);
     const L = len * RES;
     const W = wid * RES;
     g.fillStyle(0xffffff, 1);
-    g.fillRoundedRect(0, 0, L, W, Math.min(5 * RES, W / 3));
-    g.lineStyle(1 * RES, 0x000000, 0.45);
-    g.strokeRoundedRect(0.5 * RES, 0.5 * RES, L - RES, W - RES, Math.min(5 * RES, W / 3));
-    g.fillStyle(0x0a0e14, 0.6);
-    if (buses) {
-      for (let x = 4 * RES; x < L - 10 * RES; x += 7 * RES) g.fillRect(x, 2.5 * RES, 5 * RES, W - 5 * RES);
-      g.fillRect(L - 7 * RES, 2 * RES, 4 * RES, W - 4 * RES); // windshield (front = +x)
+    if (segments > 1) {
+      // articulated: separate carriages with a hairline gap, like a train
+      const gap = 2 * RES;
+      const seg = (L - gap * (segments - 1)) / segments;
+      for (let i = 0; i < segments; i++) g.fillRoundedRect(i * (seg + gap), 0, seg, W, 3 * RES);
     } else {
-      g.fillRect(L * 0.62, 2 * RES, L * 0.16, W - 4 * RES); // windshield
-      g.fillRect(L * 0.14, 2.5 * RES, L * 0.1, W - 5 * RES); // rear window
+      g.fillRoundedRect(0, 0, L, W, 3 * RES);
     }
     g.generateTexture(key, L, W);
     g.destroy();
   };
-  mk('car', vehicleTypes.car.length, vehicleTypes.car.width, false);
-  if (vehicleTypes.bus) mk('bus', vehicleTypes.bus.length, vehicleTypes.bus.width, true);
+  mk('car', vehicleTypes.car.length, vehicleTypes.car.width, 1);
+  if (vehicleTypes.bus) mk('bus', vehicleTypes.bus.length, vehicleTypes.bus.width, 2);
   if (!scene.textures.exists('diamond')) {
     const g = scene.make.graphics({ x: 0, y: 0 }, false);
-    const d = 6 * RES;
+    const d = 4.5 * RES;
     g.fillStyle(0xffffff, 1);
     g.fillTriangle(d, 0, 2 * d, d, 0, d);
     g.fillTriangle(d, 2 * d, 2 * d, d, 0, d);

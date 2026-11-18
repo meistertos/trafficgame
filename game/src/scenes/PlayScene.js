@@ -8,10 +8,10 @@ import { getPack, objectiveText } from '../pack.js';
 import { markCompleted } from '../storage.js';
 import { audio } from '../audio.js';
 import { setupCamera } from './common.js';
-import { text, button, roundedPanel } from '../ui.js';
+import { text, button, roundedPanel, station, fillDiamond } from '../ui.js';
 import { drawStaticMap, signalLayout, SignalHead, QueueBadges } from '../map.js';
 import { VehicleLayer } from '../vehicles.js';
-import { GAME_W, HUD_H, WORLD_W, WORLD_H, COLORS, CSS, MIN_TARGET_CSS_PX } from '../config.js';
+import { GAME_W, HUD_H, WORLD_W, WORLD_H, COLORS, CSS, MIN_TARGET_CSS_PX, THEME, toggleTheme } from '../config.js';
 
 const STEP = 1 / TICK_RATE;
 const MAX_STEPS_PER_FRAME = 60; // at most 0.5 s of simulation per rendered frame
@@ -59,50 +59,111 @@ export class PlayScene extends Phaser.Scene {
   // ---------- HUD (outside the world rectangle) ----------
   buildHud() {
     const g = this.add.graphics();
-    g.fillStyle(COLORS.panel, 1);
+    g.fillStyle(COLORS.paper, 1);
     g.fillRect(0, 0, GAME_W, HUD_H);
-    g.lineStyle(2, COLORS.border, 1);
-    g.lineBetween(0, HUD_H - 1, GAME_W, HUD_H - 1);
-    this.hudTitle = text(this, 20, 12, `Level ${this.index + 1} — ${this.level.title}`, { size: 22, weight: 'bold' });
-    this.hudRequired = text(this, 20, 48, '', { size: 19, weight: 'bold', color: CSS.yellow });
-    this.hudTime = text(this, 210, 48, '', { size: 19, weight: 'bold' });
-    this.hudThrough = text(this, 370, 50, '', { size: 16, color: CSS.muted });
-    text(this, 20, 86, '◆ marked car = required  ·  NO SIGNAL = unstoppable  ·  keys 1–4 toggle, P pause, R retry',
-      { size: 13, color: CSS.muted });
+    g.fillStyle(COLORS.faint, 1);
+    g.fillRect(40, HUD_H - 2, GAME_W - 80, 2);
 
-    // HTML-equivalent signal buttons: always usable on small screens (spec §3)
-    this.sigButtons = this.prepped.signals.map((s, i) => {
-      const b = button(this, 600 + i * 88, HUD_H / 2, 80, 92, s.id, () => this.toggleSignal(s.id), { size: 26, sub: 'RED' });
-      return { id: s.id, b, green: null };
-    });
-    this.pauseBtn = button(this, 1010, 34, 120, 52, 'Pause (P)', () => this.togglePause(), { size: 17 });
-    this.menuBtn = button(this, 1138, 34, 112, 52, 'Levels', () => this.toSelect(), { size: 17 });
-    this.audioBtn = button(this, 1074, 92, 248, 44, `Sound: ${audio.enabled ? 'on' : 'off'}`, () => {
+    text(this, 40, 26, `LEVEL ${this.index + 1} / ${this.levels.length}`, { size: 11, weight: 'bold', color: CSS.muted, origin: [0, 0.5], letterSpacing: 2 });
+    this.hudTitle = text(this, 40, 56, this.level.title, { size: 26, weight: 'bold', origin: [0, 0.5] });
+    text(this, 40, 94, '1–4 toggle  ·  P pause  ·  R retry  ·  N night', { size: 12, color: CSS.muted, origin: [0, 0.5] });
+
+    // required counter: ◆ n / N, with throughput underneath
+    const ig = this.add.graphics();
+    ig.fillStyle(COLORS.ink, 1);
+    fillDiamond(ig, 352, 52, 9);
+    this.hudRequired = text(this, 370, 52, '', { size: 26, weight: 'bold', origin: [0, 0.5] });
+    this.hudThrough = text(this, 344, 86, '', { size: 12, color: CSS.muted, origin: [0, 0.5] });
+
+    // clock: a ring that empties as the deadline approaches
+    this.clockG = this.add.graphics();
+    this.hudTime = text(this, 530, 60, '', { size: 16, weight: 'bold', origin: 0.5 });
+
+    // signal stations duplicating the map heads: always usable on small screens (spec §3)
+    this.sigButtons = this.prepped.signals.map((s, i) => ({ id: s.id, b: this.hudSignal(650 + i * 84, 52, s.id), green: null }));
+
+    this.pauseBtn = button(this, 1000, 40, 120, 44, 'Pause', () => this.togglePause(), { size: 15 });
+    this.menuBtn = button(this, 1120, 40, 100, 44, 'Levels', () => this.toSelect(), { size: 15 });
+    this.themeBtn = button(this, 1120, 94, 100, 32, THEME === 'day' ? 'Night' : 'Day', () => this.swapTheme(), { size: 13 });
+    this.audioBtn = button(this, 1000, 94, 120, 32, `Sound ${audio.enabled ? 'on' : 'off'}`, () => {
       const on = audio.toggle();
-      this.audioBtn.setLabel(`Sound: ${on ? 'on' : 'off'}`);
+      this.audioBtn.setLabel(`Sound ${on ? 'on' : 'off'}`);
       if (on) audio.click();
-    }, { size: 15 });
+    }, { size: 13 });
+  }
+
+  hudSignal(x, y, id) {
+    const c = this.add.container(x, y);
+    const g = this.add.graphics();
+    const letter = text(this, 0, 0, id, { size: 22, weight: 'bold', origin: 0.5 });
+    const sub = text(this, 0, 42, 'RED', { size: 10, weight: 'bold', color: CSS.red, origin: 0.5, letterSpacing: 1.5 });
+    c.add([g, letter, sub]);
+    c.setSize(76, 104);
+    c.setInteractive({ useHandCursor: true });
+    const st = { green: false, enabled: true, hover: false };
+    const draw = () => {
+      g.clear();
+      const r = st.hover && st.enabled ? 28 : 26;
+      if (st.green) station(g, 0, 0, r, { ring: COLORS.green, fill: COLORS.green });
+      else station(g, 0, 0, r, { ring: COLORS.red, fill: COLORS.card, width: 6 });
+      letter.setColor(st.green ? CSS.paper : CSS.fg);
+      sub.setText(st.green ? 'GREEN' : 'RED').setColor(st.green ? CSS.green : CSS.red);
+      c.setAlpha(st.enabled ? 1 : 0.4);
+    };
+    c.on('pointerover', () => { st.hover = true; draw(); });
+    c.on('pointerout', () => { st.hover = false; draw(); });
+    c.on('pointerdown', (p, lx, ly, event) => { event?.stopPropagation?.(); if (st.enabled) this.toggleSignal(id); });
+    draw();
+    return {
+      setGreen(on) { st.green = on; draw(); return this; },
+      setEnabled(on) { if (st.enabled === !!on) return this; st.enabled = !!on; c.input && (c.input.cursor = on ? 'pointer' : 'default'); draw(); return this; },
+    };
+  }
+
+  drawClock(remaining, urgent) {
+    const g = this.clockG;
+    const cx = 530;
+    const cy = 60;
+    const r = 30;
+    const frac = Math.max(0, Math.min(1, remaining / this.level.deadline));
+    g.clear();
+    g.lineStyle(6, COLORS.faint, 1);
+    g.strokeCircle(cx, cy, r);
+    if (frac > 0) {
+      g.lineStyle(6, urgent ? COLORS.red : COLORS.ink, 1);
+      g.beginPath();
+      g.arc(cx, cy, r, -Math.PI / 2, -Math.PI / 2 + frac * Math.PI * 2, false);
+      g.strokePath();
+    }
   }
 
   refresh() {
     const st = this.sim;
     const cleared = st ? st.requiredCleared : 0;
-    this.hudRequired.setText(`Required: ${cleared} / ${this.level.requiredCount}`);
+    this.hudRequired.setText(`${cleared} / ${this.level.requiredCount}`);
     const remaining = Math.max(0, this.level.deadline - (st ? st.tick / TICK_RATE : 0));
-    this.hudTime.setText(`Time: ${remaining.toFixed(1)}s`).setColor(remaining <= 5 && st ? CSS.red : CSS.fg);
-    this.hudThrough.setText(`Throughput: ${st ? st.totalExited : 0}`);
+    const urgent = remaining <= 5 && !!st;
+    const label = remaining.toFixed(remaining < 10 ? 1 : 0);
+    if (label !== this.lastClock || urgent !== this.lastUrgent) {
+      this.lastClock = label;
+      this.lastUrgent = urgent;
+      this.hudTime.setText(label).setColor(urgent ? CSS.red : CSS.fg);
+    }
+    this.drawClock(remaining, urgent);
+    this.hudThrough.setText(`${st ? st.totalExited : 0} cars through`);
     const playing = this.mode === 'playing';
     for (const sb of this.sigButtons) {
       const green = st ? signalState(st, sb.id) === 'green' : false;
       if (green !== sb.green) {
         sb.green = green;
-        sb.b.setSub(green ? 'GREEN' : 'RED', green ? CSS.green : CSS.red).setBorder(green ? COLORS.green : COLORS.red);
+        sb.b.setGreen(green);
       }
       sb.b.setEnabled(playing);
     }
     for (const h of this.heads) h.setGreen(st ? signalState(st, h.id) === 'green' : false);
     this.pauseBtn.setEnabled(playing || this.mode === 'paused');
-    this.pauseBtn.setLabel(this.mode === 'paused' ? 'Resume (P)' : 'Pause (P)');
+    this.themeBtn.setEnabled(this.canSwapTheme());
+    this.pauseBtn.setLabel(this.mode === 'paused' ? 'Resume' : 'Pause');
     this.badges.update(st);
     this.vehicles.sync(st, this.highlight);
   }
@@ -132,6 +193,7 @@ export class PlayScene extends Phaser.Scene {
       return;
     }
     const k = e.key.toLowerCase();
+    if (k === 'n') { this.swapTheme(); return; }
     if (k === 'p' || e.key === 'Escape') this.togglePause();
     else if (k === 'r' && (this.mode === 'paused' || this.mode === 'result')) this.retry();
     else if (e.key === 'Enter' && this.mode === 'preview') this.beginCountdown();
@@ -146,7 +208,7 @@ export class PlayScene extends Phaser.Scene {
   card(w, h) {
     const cx = WORLD_W / 2;
     const cy = HUD_H + WORLD_H / 2;
-    const dim = this.add.rectangle(WORLD_W / 2, HUD_H + WORLD_H / 2, WORLD_W, WORLD_H, COLORS.letterbox, 0.55);
+    const dim = this.add.rectangle(WORLD_W / 2, HUD_H + WORLD_H / 2, WORLD_W, WORLD_H, COLORS.paper, 0.75);
     dim.setInteractive(); // swallow taps so nothing underneath reacts
     const panel = roundedPanel(this, cx - w / 2, cy - h / 2, w, h, { radius: 16 });
     this.overlay.add([dim, panel]);
@@ -171,11 +233,11 @@ export class PlayScene extends Phaser.Scene {
     const lines = [
       text(this, box.cx, box.y + 36, this.level.title, { size: 30, weight: 'bold', origin: 0.5 }),
       text(this, box.cx, box.y + 74, `Level ${this.index + 1} of ${this.levels.length} · deadline ${this.level.deadline}s`, { size: 16, color: CSS.muted, origin: 0.5 }),
-      text(this, box.cx, box.y + 116, `${objectiveText(this.level)}.`, { size: 21, weight: 'bold', color: CSS.yellow, origin: 0.5 }),
+      text(this, box.cx, box.y + 116, `◆  ${objectiveText(this.level)}`, { size: 20, weight: 'bold', color: CSS.fg, origin: 0.5 }),
       text(this, box.cx, box.y + 154, `Lesson: ${this.level.lesson}`, { size: 16, color: CSS.fg, origin: [0.5, 0], align: 'center', wrap: 560 }),
     ];
     if (this.level.tutorial) {
-      lines.push(text(this, box.cx, box.y + 214, this.level.tutorial, { size: 16, color: CSS.accent, origin: [0.5, 0], align: 'center', wrap: 560 }));
+      lines.push(text(this, box.cx, box.y + 214, this.level.tutorial, { size: 16, color: CSS.muted, origin: [0.5, 0], align: 'center', wrap: 560 }));
     }
     this.overlay.add(lines);
     this.addButtons(box, [
@@ -258,6 +320,15 @@ export class PlayScene extends Phaser.Scene {
 
   retry() { this.beginCountdown(); }
 
+  // Swapping redraws the whole scene, so it is only offered when no run is in progress.
+  canSwapTheme() { return this.mode === 'preview' || this.mode === 'result'; }
+
+  swapTheme() {
+    if (!this.canSwapTheme()) return;
+    toggleTheme();
+    this.scene.restart({ index: this.index });
+  }
+
   toSelect(data = {}) { this.clearOverlay(); this.scene.start('select', data); }
 
   next() {
@@ -291,7 +362,7 @@ export class PlayScene extends Phaser.Scene {
     let body;
     let color = CSS.fg;
     if (o.type === 'win') {
-      title = 'Level complete ✓';
+      title = 'Level complete';
       color = CSS.green;
       body = `${last ? `Campaign complete! All ${this.levels.length} levels cleared.\n` : ''}Time used: ${t}s of ${this.level.deadline}s\n` +
         `Required cleared: ${this.sim.requiredCleared} / ${this.sim.requiredTarget} · total throughput: ${this.sim.totalExited}`;
